@@ -16,6 +16,7 @@
     color: white;
     margin-left: 200px;
     margin-right: 200px;
+    min-width: 880px;
 }
 
 .page__content {

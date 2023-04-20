@@ -156,29 +156,46 @@
 }
 
 
-@media screen and (max-width: 800px){
+@media screen and (max-width: 480px){
+   .header{
+    margin-left: 27px;
+    margin-right: auto;
+    margin-top: 28px;
+   }
+   
+   
+   .profile {
+       flex-direction: column;
+       align-items: flex-start;
+       justify-content: center;
+       
+    }
+
+   .profile__avatar{
+      margin-right: auto;
+      margin-left: auto;
+   }
+
+    .profile__description{
+        margin-bottom: 20px;
+        
+    }
+    .profile__info{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .profile__add-button{
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
     .card__list{
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;
         align-items: center;
-    }
-
-    .profile {
-        flex-direction: column;
-        align-items: flex-start;
-        justify-content: center;
-        
-    }
-    .prifile__description{
-        margin-bottom: 20px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .profile__add-button{
-        width: 80%;
-        margin-right: auto;
-        margin-left: auto;
     }
 }

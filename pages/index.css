@@ -19,7 +19,7 @@
 .page__content {
     margin-left: 200px;
     margin-right: 200px;
-    
+    max-width: 880px;
 }
 
 .header {
@@ -136,9 +136,12 @@
     padding-left: 20px;
     padding-top: 25px;
     padding-bottom: 25px;
+   
+}
+.card__title{
     text-overflow: ellipsis;
     white-space: nowrap;
-     overflow: hidden;
+    overflow: hidden;
 }
 
 .card__like-button{
@@ -157,8 +160,8 @@
 
 
 @media screen and (max-width: 480px){
-   .header{
-    margin-left: 27px;
+   .header__logo{
+    margin-left: -155px;
     margin-right: auto;
     margin-top: 28px;
    }
@@ -175,17 +178,33 @@
       margin-right: auto;
       margin-left: auto;
    }
+   .profile__name{
+      font-size: 22px;
+      margin-left: auto;
+      margin-right: auto;
+   }
 
-    .profile__description{
-        margin-bottom: 20px;
-        
-    }
-    .profile__info{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
+   .profile__info{
+       display: flex;
+       flex-direction: column;
+       align-items: center;
+       margin-left: auto;
+       margin-right: auto;
+       font-size: 14px;
+       font-weight: 400;
+       width: 100%;
     }
     
+    .profile__description{
+        margin-bottom: 36px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile__edit-button{
+      height: 7.5px;
+      width: 7.5px;
+    }
     .profile__add-button{
         width: 80%;
         margin-right: auto;

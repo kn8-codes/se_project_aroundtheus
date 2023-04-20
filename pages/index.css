@@ -14,19 +14,19 @@
 .page{
     background-color: black;
     color: white;
-    margin-left: 200px;
-    margin-right: 200px;
-    min-width: 880px;
 }
 
 .page__content {
-   max-width: 880px;
-
+    margin-left: 200px;
+    margin-right: 200px;
+    
 }
 
 .header {
     margin-top: 45px;
-    max-width: 880;
+    max-width: 880px;
+    margin-left: 200px;
+    margin-right: 200px;
 }
 
 .header__logo {
@@ -71,12 +71,18 @@
     border: 1px solid white;
     background: transparent url(../images/pencil.svg) center no-repeat;
     margin-right: 172px;
+    cursor: pointer;
+    transition: opacity .3s ease-in-out;
 
 }
 
+.profile__edit-button:hover{
+    opacity: 50%;
+}
+
 .profile__description {
-font-family: "Inter", Arial, sans-serif;
-font-weight: 400;
+    font-family: "Inter", Arial, sans-serif;
+    font-weight: 400;
 }
 
 .profile__add-button {
@@ -85,6 +91,12 @@ font-weight: 400;
     background: transparent url(../images/plus.svg) center no-repeat;
     border: 1px solid white;
     align-self: center;
+    cursor: pointer;
+    transition: opacity .5s ease-in-out;
+}
+
+.profile__add-button:hover{
+    opacity: 50%;
 }
 
 .cards{
@@ -93,13 +105,13 @@ font-weight: 400;
 }
 
 .card__list{
-  display: grid;
-  justify-content: center;
-  grid-template-columns: repeat(auto-fit, 282px);
-  grid-gap: 17px 20px;
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
+   display: grid;
+   justify-content: center;
+   grid-template-columns: repeat(auto-fit, 282px);
+   grid-gap: 17px 20px;
+   list-style-type: none;
+   padding: 0px;
+   margin: 0px;
 }
 
 .card{
@@ -135,4 +147,38 @@ font-weight: 400;
     height: 18px;
     margin-right: 20px;
     border: 0px;
+    cursor: pointer;
+    transition: opacity .3s ease-in-out;
+}
+
+.card__like-button:hover{
+    opacity: 50%;
+}
+
+
+@media screen and (max-width: 800px){
+    .card__list{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    .profile {
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        
+    }
+    .prifile__description{
+        margin-bottom: 20px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .profile__add-button{
+        width: 80%;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }

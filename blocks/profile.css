@@ -52,7 +52,7 @@
   }
   
   .profile__edit-button:hover {
-    color: rgba(255, 255, 255, 0.6);
+    opacity: 50%;
     transition: all 0.3s ease-in-out;
   }
   
@@ -152,7 +152,7 @@
       width: 18px;
       height: 18px;
     }
-    
+
     .profile__image {
       margin: auto;
     }

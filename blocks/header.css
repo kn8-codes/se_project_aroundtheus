@@ -1,0 +1,25 @@
+.header {
+    padding-top: 45px;
+    margin: 0 auto;
+    border-bottom: 1px solid rgba(84, 84, 84, 0.7);
+  }
+  
+  .header__image {
+    width: 173px;
+    height: 33px;
+    padding-bottom: 41px;
+  }
+  
+  @media screen and (max-width: 880px) {
+    .header {
+      padding: 0;
+    }
+    .header__image {
+      width: 126px;
+      height: 24px;
+      padding-bottom: 32px;
+      padding-left: 27px;
+      padding-top: 28px;
+    }
+  }
+  

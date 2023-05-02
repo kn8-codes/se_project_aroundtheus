@@ -1,0 +1,25 @@
+.cards {
+    display: flex;
+    align-items: center;
+    margin-bottom: 47px;
+  }
+  
+  .cards__container {
+    display: grid;
+    margin: 0;
+    margin-top: 47px;
+    padding: 0;
+    list-style: none;
+    grid-template-columns: repeat(auto-fit, 282px);
+    column-gap: 17px;
+    row-gap: 20px;
+    width: 100%;
+    max-width: 880px;
+    justify-content: center;
+  }
+  
+  @media screen and (max-width: 596px) {
+    .cards {
+      margin-top: 36px;
+    }
+  }

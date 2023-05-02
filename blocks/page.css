@@ -1,0 +1,18 @@
+.page {
+    background-color: #000;
+    color: white;
+  
+    font-family: "Inter", Arial, Helvetica, sans-serif;
+    margin: 0 auto;
+  
+  }
+  
+  .page__section {
+    max-width: 880px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .page__content {
+    min-height: 100vh;
+  }

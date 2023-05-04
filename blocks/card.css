@@ -13,6 +13,7 @@
   .card__label {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     background-color: white;
     border-radius: 0 0 10px 10px;
     padding-right: 20px;
@@ -21,7 +22,7 @@
   .card__label-title {
     margin: 0 auto;
     color: black;
-    padding: 25px 69px 25px 20px;
+    padding: 25px 0px 25px 20px;
     font-size: 24px;
     line-height: 29.05px;
     font-weight: 900;

@@ -21,7 +21,7 @@
     grid-template-areas:
       "title button"
       "description description";
-    grid-template-columns: minmax(auto, 373px) auto;
+    grid-template-columns: minmax(auto, 400px) auto;
     flex-wrap: wrap;
     row-gap: 16px;
     column-gap: 9px;
@@ -99,15 +99,11 @@
   }
 
   .profile__info {
-    grid-template-areas:
-      "title button"
-      "description description";
     grid-template-columns: auto auto;
     row-gap: 10px;
     column-gap: 16px;
     margin: 0;
     text-align: right;
-    align-items: center;
   }
 
   .profile__title {

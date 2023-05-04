@@ -1,5 +1,5 @@
 .card {
-    border-radius: 20px;
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
   }
@@ -31,10 +31,10 @@
   }
   
   .card__like-button {
-    background-color: transparent;
+    background: transparent url(../images/heart-icon.svg) center no-repeat;
     align-self: center;
-    width: 21px;
-    height: 18px;
+    width: 33px;
+    height: 33px;
     border: 0;
     padding: 0;
     cursor: pointer;

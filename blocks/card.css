@@ -16,13 +16,13 @@
     align-items: center;
     background-color: white;
     border-radius: 0 0 10px 10px;
-    padding-right: 20px;
+    padding: 25px 0px 25px 20px;
   }
   
   .card__label-title {
-    margin: 0 auto;
+    margin: 0;
     color: black;
-    padding: 25px 0px 25px 20px;
+    
     font-size: 24px;
     line-height: 29.05px;
     font-weight: 900;
@@ -34,10 +34,10 @@
   .card__like-button {
     background: transparent url(../images/heart-icon.svg) center no-repeat;
     align-self: center;
-    width: 33px;
-    height: 33px;
+    width: 21px;
+    height: 18px;
     border: 0;
-    padding: 0;
+    padding-right: 30px;
     cursor: pointer;
   }
   

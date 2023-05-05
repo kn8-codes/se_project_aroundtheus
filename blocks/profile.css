@@ -111,6 +111,7 @@
     line-height: 27px;
     max-width: 196px;
     padding-top: 26px;
+    padding-right: 0px;
   }
 
   .profile__description {

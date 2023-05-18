@@ -26,86 +26,24 @@
             src="./images/jacques-cousteau.jpg"
             alt="avatar" />
           <div class="profile__info">
-            <h1 class="profile__title">Jacques Cousteau</h1>
+            <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>
             <button type="button" class="profile__edit-button" id="profile-edit-button" aria-label="edit button"></button>
-            <p class="profile__description">Explorer</p>
+            <p class="profile__description" id="profile-description">Explorer</p>
           </div>
           <button type="button" class="profile__add-button" aria-label="add button"></button>
         </section>
 
         <section class="cards page__section">
           <ul class="cards__container">
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/yosemite.jpg"
-                alt="yosemite" />
-              <div class="card__label">
-                <h2 class="card__label-title">Yosemite Valley</h2>
-                <button type="button" class="card__like-button" aria-label="like button">
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/lake-louise.jpg"
-                alt="lake louise" />
-              <div class="card__label">
-                <h2 class="card__label-title">Lake Louise</h2>
-                <button type="button" class="card__like-button" aria-label="like button">
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/bald-mountains.jpg"
-                alt="bald mountains" />
-              <div class="card__label">
-                <h2 class="card__label-title">Bald Mountains</h2>
-                <button type="button" class="card__like-button" aria-label="like button">
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/latemar.jpg"
-                alt="latemar" />
-              <div class="card__label">
-                <h2 class="card__label-title">Latemar</h2>
-                <button type="button" class="card__like-button" aria-label="like button">
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img
-                class="card__image"
-                src="./images/vanoise.jpg"
-                alt="vanoise" />
-
-              <div class="card__label">
-                <h2 class="card__label-title">Vanoise National Park</h2>
-
-                <button type="button" class="card__like-button" aria-label="like button">
-                </button>
-              </div>
-            </li>
-            <li class="card">
-              <img class="card__image" src="./images/lago.jpg" alt="lago" />
-              <div class="card__label">
-                <h2 class="card__label-title">Lago di Braies</h2>
-                <button type="button" class="card__like-button" aria-label="like button">
-                </button>
-              </div>
-            </li>
+            
           </ul>
         </section>
       </main>
       <footer class="footer">
         <p class="footer__copyright">&copy; Nathaniel Kelly 2023</p>
       </footer>
+      
+      
       <div class="modal" id="profile-edit-modal">
         <div class="modal__container">
           <button class="modal__close" type="button" id="profile-edit-close"></button>
@@ -115,7 +53,7 @@
               <input
                 type="text"
                 class="modal__input"
-                id="name"
+                id="edit-modal-input-title"
                 placeholder="Name"
                 required
               />
@@ -123,7 +61,7 @@
               <input
                 type="text"
                 class="modal__input"
-                id="description"
+                id="edit-modal-input-description"
                 placeholder="Description"
                 required
               />
@@ -166,6 +104,20 @@
         </div>
       </div>
     </div>
+
+
+    <template id="card-template">
+      <li class="card">
+        <img class="card__image" src="./images/lago.jpg" alt="lago" />
+        <div class="card__label">
+          <h2 class="card__label-title">Lago di Braies</h2>
+          <button type="button" class="card__like-button" aria-label="like button">
+          </button>
+        </div>
+      </li>
+    </template>
+    
+    
     <script src="./scripts/index.js"></script>
   </body>
 </html>

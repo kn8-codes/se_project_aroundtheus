@@ -34,13 +34,37 @@ const initialCards = [
   const profileEditButton = document.querySelector('#profile-edit-button');
   const profileEditModal = document.querySelector('#profile-edit-modal');
   const profileCloseModal = document.querySelector('#profile-edit-close');
-  
+  const profileTitle = document.querySelector('#profile-title');
+  const profileDescription = document.querySelector('#profile-description');
+  const profileTitleInput = document.querySelector('#edit-modal-input-title');
+  const profileDescriptionInput = document.querySelector('#edit-modal-input-description');
+  const profileEditForm = profileEditModal.querySelector('.modal__form');
+
+// console.log(profileEditForm)
+// console.log(profileDescriptionInput)
+
+
+//fucntions
+function closeModal(){
+  profileEditModal.classList.remove('modal_opened');
+}
+
+//event handlers
+function handleProfileEditSubmit(e){
+  e.preventDefault();
+  profileTitle.textContent = profileTitleInput.value;
+  profileDescription.textContent = profileDescriptionInput.value;
+  closeModal();
+} 
+
+
 //event Listeners
   profileEditButton.addEventListener('click' , () => {
+    profileTitleInput.value = profileTitle.textContent;
+    profileDescriptionInput.value = profileDescription.textContent;
     profileEditModal.classList.add('modal_opened');
   });
   
-  profileCloseModal.addEventListener('click' , () => {
-    profileEditModal.classList.remove('modal_opened');
-  });
+  profileCloseModal.addEventListener('click' , closeModal);
   
+profileEditForm.addEventListener('submit' , handleProfileEditSubmit);

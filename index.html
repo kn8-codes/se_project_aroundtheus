@@ -27,7 +27,7 @@
             alt="avatar" />
           <div class="profile__info">
             <h1 class="profile__title">Jacques Cousteau</h1>
-            <button type="button" class="profile__edit-button" aria-label="edit button"></button>
+            <button type="button" class="profile__edit-button" id="profile-edit-button" aria-label="edit button"></button>
             <p class="profile__description">Explorer</p>
           </div>
           <button type="button" class="profile__add-button" aria-label="add button"></button>
@@ -106,9 +106,9 @@
       <footer class="footer">
         <p class="footer__copyright">&copy; Nathaniel Kelly 2023</p>
       </footer>
-      <div class="modal" id="edit">
+      <div class="modal" id="profile-edit-modal">
         <div class="modal__container">
-          <button class="modal__close" type="button" id="edit-close"></button>
+          <button class="modal__close" type="button" id="profile-edit-close"></button>
           <form class="modal__form" id="edit-form">
             <fieldset class="modal__fieldset">
               <h2 class="modal__title">Edit profile</h2>

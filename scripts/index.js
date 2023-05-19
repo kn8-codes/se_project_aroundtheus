@@ -43,29 +43,29 @@ const initialCards = [
   const cardTemplate = document.querySelector('#card-template').content.firstElementChild;
   
 
-  //  console.log(cardTemplate)
-// console.log(profileDescriptionInput)
+/*********************************************************************************************/
+/***************************************FUNCTIONS*********************************************/
+/*********************************************************************************************/
+  
 
-
-//fucntions
-function closeModal(){
-  profileEditModal.classList.remove('modal_opened');
+  function closeModal(){
+    profileEditModal.classList.remove('modal_opened');
 }
 
-function getCardElement(cardData){
-  const cardElement = cardTemplate.cloneNode(true);
-const cardImageElement = cardElement.querySelector('.card__image');
-const cardTitleElement = cardElement.querySelector('.card__label-title');
-
-
-cardTitleElement.textContent = cardData.name;
-cardImageElement.src = cardData.link;
-cardImageElement.alt = cardData.name;
-return cardElement;
+  function getCardElement(cardData){
+    const cardElement = cardTemplate.cloneNode(true);
+    const cardImageElement = cardElement.querySelector('.card__image');
+    const cardTitleElement = cardElement.querySelector('.card__label-title');
+    cardTitleElement.textContent = cardData.name;
+    cardImageElement.src = cardData.link;
+    cardImageElement.alt = cardData.name;
+    return cardElement;
 }
 
 
-//event handlers
+/*********************************************************************************************/
+/***************************************EVENT HANDLERS****************************************/
+/*********************************************************************************************/
 function handleProfileEditSubmit(e){
   e.preventDefault();
   profileTitle.textContent = profileTitleInput.value;
@@ -74,22 +74,20 @@ function handleProfileEditSubmit(e){
 } 
 
 
-//event Listeners
+/*********************************************************************************************/
+/***********************************EVENT LISTENERS*******************************************/
+/*********************************************************************************************/
   profileEditButton.addEventListener('click' , () => {
     profileTitleInput.value = profileTitle.textContent;
     profileDescriptionInput.value = profileDescription.textContent;
     profileEditModal.classList.add('modal_opened');
   });
   
-  profileCloseModal.addEventListener('click' , closeModal);
+profileCloseModal.addEventListener('click' , closeModal);
   
 profileEditForm.addEventListener('submit' , handleProfileEditSubmit);
 
 initialCards.forEach((cardData) => {
-
-const cardElement = getCardElement(cardData);
-
-
-cardContainerElement.prepend(cardElement);
-
+  const cardElement = getCardElement(cardData);
+  cardContainerElement.prepend(cardElement);
 });

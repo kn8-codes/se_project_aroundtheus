@@ -114,14 +114,15 @@
   
   .modal__button {
     height: 50.15px;
-    width: 358px;
+    /* width: 358px; */
     left: 107px;
     top: 337px;
     border: 2px solid black;
     background-color: black;
     color: white;
     margin: 48px auto 36.5px;
-    padding: 0;
+    padding-right: 124px;
+    padding-left: 124px;
   }
   
   .modal__button:hover {
@@ -140,6 +141,10 @@
     .modal__container {
       height: 322px;
       width: 282px;
+      top: unset;
+      left: unset;
+      margin-top: unset;
+      margin-left: unset;
     }
   
     .modal__title {
@@ -158,7 +163,9 @@
     }
     .modal__button {
       height: 46px;
-      width: 238px;
+      /* width: 238px; */
       margin: 45px 22px 25px;
+      padding-left: 10px;
+      padding-right: 10px;
     }
   }

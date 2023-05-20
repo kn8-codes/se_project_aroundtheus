@@ -48,6 +48,9 @@ const initialCards = [
 /*********************************************************************************************/
   
 
+  function openModal(){
+    profileEditModal.classList.add('modal_opened');
+}
   function closeModal(){
     profileEditModal.classList.remove('modal_opened');
 }
@@ -73,15 +76,16 @@ function handleProfileEditSubmit(e){
   closeModal();
 } 
 
+function fillProfileForm(){
+  profileTitleInput.value = profileTitle.textContent;
+    profileDescriptionInput.value = profileDescription.textContent;
+    openModal();
+};
 
 /*********************************************************************************************/
 /***********************************EVENT LISTENERS*******************************************/
 /*********************************************************************************************/
-  profileEditButton.addEventListener('click' , () => {
-    profileTitleInput.value = profileTitle.textContent;
-    profileDescriptionInput.value = profileDescription.textContent;
-    profileEditModal.classList.add('modal_opened');
-  });
+  profileEditButton.addEventListener('click' , fillProfileForm);
   
 profileCloseModal.addEventListener('click' , closeModal);
   

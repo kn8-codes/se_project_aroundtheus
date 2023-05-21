@@ -114,7 +114,7 @@
   
   .modal__button {
     height: 50.15px;
-    /* width: 358px; */
+    width: 100%;
     left: 107px;
     top: 337px;
     border: 2px solid black;

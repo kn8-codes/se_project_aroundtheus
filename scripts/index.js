@@ -77,8 +77,8 @@ function handleProfileEditSubmit(e){
 
 function fillProfileForm(){
   profileTitleInput.value = profileTitle.textContent;
-    profileDescriptionInput.value = profileDescription.textContent;
-    openModal();
+  profileDescriptionInput.value = profileDescription.textContent;
+  openModal();
 };
 
 /*********************************************************************************************/

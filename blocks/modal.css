@@ -145,12 +145,14 @@
       left: unset;
       margin-top: unset;
       margin-left: unset;
+      padding-left: 25px;
+      padding-right: 40px;
     }
   
     .modal__title {
       font-size: 18px;
       line-height: 22px;
-      padding: 25px 22px 43px;
+      /* padding: 25px 22px 43px; */
       margin: 0;
     }
     .modal__form {
@@ -158,14 +160,14 @@
     }
   
     .modal__input {
-      margin: 0 22px 13px;
+      /* margin: 0 22px 13px; */
       width: 100%;
     }
     .modal__button {
       height: 46px;
-      /* width: 238px; */
-      margin: 45px 22px 25px;
-      padding-left: 10px;
-      padding-right: 10px;
+      width: 100%
+      /* margin: 45px 22px 25px; */
+      /* padding-left: 10px; */
+      /* padding-right: 10px; */
     }
   }

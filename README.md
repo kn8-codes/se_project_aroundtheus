@@ -10,10 +10,10 @@
 * Media Queries
 * BEM
 * Javascript
-** Functions
-** Fariables
-** Loops
-** Dom Manipulation 
+* Functions
+* Variables
+* Loops
+* DOM Manipulation 
 
 **Intro**
   

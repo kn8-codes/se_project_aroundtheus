@@ -1,4 +1,4 @@
-# Project 4: Around The U.S.
+# Project 5: Around The U.S.
 
 ### Overview  
 
@@ -14,6 +14,7 @@
 * Variables
 * Loops
 * DOM Manipulation 
+* Advanced DOM Manipulation
 
 **Intro**
   

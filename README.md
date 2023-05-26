@@ -13,13 +13,14 @@
 * Functions
 * Variables
 * Loops
+* Array Methods
 * DOM Manipulation 
 * Advanced DOM Manipulation
 
 **Intro**
   
 This project was an excercise in creating a usable interface that 
-is functional and beautiful on all display sizes.   
+is functional and visually appealing on all display sizes.   
   
 **Figma**  
   

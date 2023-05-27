@@ -59,7 +59,7 @@
   .modal__container {
     background-color: white;
     width: 430px;
-    height: 330px;
+    /* height: 330px; */
     align-content: center;
     justify-content: center;
     border-radius: 10px;
@@ -76,7 +76,7 @@
     font-weight: 900;
     font-size: 24px;
     line-height: 29px;
-    padding: 36px 64px 28px 36px;
+    padding: 0 0 28px 0;
     margin: 0;
   }
   .modal__form {
@@ -105,7 +105,7 @@
     color: rgba(0, 0, 0, 1);
     height: 38px;
     padding: 0;
-    margin: 0 36px 29px;
+    margin: 0 0 29px;
     box-sizing: border-box;
   }
   
@@ -146,7 +146,7 @@
       left: unset;
       margin-top: unset;
       margin-left: unset;
-      padding: 36px;
+      
     }
   
     .modal__title {

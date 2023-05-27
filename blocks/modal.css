@@ -68,6 +68,7 @@
     top: 64%;
     margin-top: -282px;
     margin-left: -282px;
+    padding: 36px;
   }
   
   .modal__title {
@@ -163,7 +164,7 @@
       margin: 0 0 29px;
       width: 100%;
     }
-    
+
     .modal__button {
       height: 46px;
       width: 100%

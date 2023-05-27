@@ -145,24 +145,25 @@
       left: unset;
       margin-top: unset;
       margin-left: unset;
-      padding-left: 25px;
-      padding-right: 40px;
+      padding: 36px;
     }
   
     .modal__title {
       font-size: 18px;
       line-height: 22px;
-      /* padding: 25px 22px 43px; */
+      padding: 36px 0 28px 0;
       margin: 0;
     }
+
     .modal__form {
       max-width: 238px;
     }
   
     .modal__input {
-      /* margin: 0 22px 13px; */
+      margin: 0 0 29px;
       width: 100%;
     }
+    
     .modal__button {
       height: 46px;
       width: 100%

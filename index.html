@@ -30,7 +30,7 @@
             <button type="button" class="profile__edit-button" id="profile-edit-button" aria-label="edit button"></button>
             <p class="profile__description" id="profile-description">Explorer</p>
           </div>
-          <button type="button" class="profile__add-button" aria-label="add button"></button>
+          <button type="button" class="profile__add-button" id="profile-add-button" aria-label="add button"></button>
         </section>
 
         <section class="cards page__section">
@@ -41,7 +41,7 @@
         <p class="footer__copyright">&copy; Nathaniel Kelly 2023</p>
       </footer>
       
-      
+      <!-- edit modal -->
       <div class="modal" id="profile-edit-modal">
         <div class="modal__container">
           <button class="modal__close" type="button" id="profile-edit-close"></button>
@@ -72,22 +72,23 @@
           </form>
         </div>
       </div>
-      <div class="modal" id="add">
+      <!-- add card moddal -->
+      <div class="modal" id="profile-add-modal">
         <div class="modal__container">
-          <button type="button" class="modal__close" id="add-close"></button>
-          <form class="modal__form" id="add-form">
+          <button type="button" class="modal__close" id="profile-add-close"></button>
+          <form class="modal__form" id="add-card-form">
             <fieldset class="modal__fieldset">
               <h2 class="modal__title">New Place</h2>
               <input
                 type="text"
-                class="modal__input"
+                class="modal__input modal__input_type_title"
                 id="title"
                 placeholder="Title"
                 required
               />
               <input
                 type="text"
-                class="modal__input"
+                class="modal__input modal__input_type_description"
                 id="link"
                 placeholder="Image Link"
                 required

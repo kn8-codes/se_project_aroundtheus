@@ -66,11 +66,18 @@ const initialCards = [
     const cardImageElement = cardElement.querySelector('.card__image');
     const cardTitleElement = cardElement.querySelector('.card__label-title');      
     const cardLikeButtons = cardElement.querySelector('.card__like-button');
-    
-    cardLikeButtons.addEventListener('click',()=>{
-       cardLikeButtons.classList.toggle('.card__like-button-active');
+    const cardDeleteButtons = cardElement.querySelector('.card__delete-button');
+
+
+    cardDeleteButtons.addEventListener('click',()=>{
        console.log('click');
      });
+     
+     cardLikeButtons.addEventListener('click',()=>{
+        cardLikeButtons.classList.toggle('.card__like-button-active');
+        console.log('click');
+      });
+     
     
     cardImageElement.src = cardData.link;
     cardImageElement.alt = cardData.name;

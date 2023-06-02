@@ -49,21 +49,3 @@
     opacity: 50%;
     transition: all 0.9s ease-in;
   }
-
-  .card__delete-button {
-    position: absolute;
-    width: 18px;
-    height: 20px;
-    background: transparent;
-    border: none;
-    background-image: url("../images/delete.svg");
-    margin-top: 18px;
-    margin-left: 249px;
-    transition-timing-function: ease-in;
-    transition-duration: 0.1s;
-    cursor: pointer;
-  }
-  
-  .card__delete-button:hover {
-    opacity: 0.5;
-  }

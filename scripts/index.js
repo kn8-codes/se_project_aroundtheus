@@ -48,9 +48,9 @@ const initialCards = [
   const cardContainerElement = document.querySelector('.cards__container');
   const cardTemplate = document.querySelector('#card-template').content.firstElementChild;
   const addNewCardButton = document.querySelector('#profile-add-button')
-  const cardTitleInput = document.querySelector('modal__input_type_title')
-  const cardUrlInput = document.querySelector('modal__input_type_description');
-  const profileAddForm = document.querySelector("#add-form");
+  
+  
+  const addForm = document.querySelector("#add-form");
   const titleInputField = document.querySelector("#title");
   const linkInputField = document.querySelector("#link");
   const createButton = document.querySelector("#create-btn");
@@ -108,11 +108,11 @@ const initialCards = [
   function handleAddCard(e) {
     e.preventDefault();
     
-   console.log('click')
-    cardsContainer.prepend(getCardElement(createdCard));
+    console.log('click')
+    //cardsContainer.prepend(getCardElement(createdCard));
 
-    closePopup(addWindow);
-    profileAddForm.reset();
+    //closePopup(addWindow);
+    //profileAddForm.reset();
   }
   /*********************************************************************************************/
   /***********************************EVENT LISTENERS*******************************************/

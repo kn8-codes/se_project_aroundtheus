@@ -107,14 +107,13 @@ const initialCards = [
 
   function handleAddCard(e) {
     e.preventDefault();
-    const titleValue = titleInputField.value
-    const urlValue = urlInputField.value
-    console.log(urlValue)
-    return console.log(titleValue)
-    //cardsContainer.prepend(getCardElement(createdCard));
+    const name = titleInputField.value;
+    const link = linkInputField.value;
+   
+    cardsContainer.prepend(getCardElement(createdCard));
 
-    //closePopup(addWindow);
-    //profileAddForm.reset();
+    closePopup(addWindow);
+    profileAddForm.reset();
   }
   /*********************************************************************************************/
   /***********************************EVENT LISTENERS*******************************************/

@@ -107,8 +107,10 @@ const initialCards = [
 
   function handleAddCard(e) {
     e.preventDefault();
-    
-    console.log('click')
+    const titleValue = titleInputField.value
+    const urlValue = urlInputField.value
+
+    return console.log(titleValue , urlValue)
     //cardsContainer.prepend(getCardElement(createdCard));
 
     //closePopup(addWindow);

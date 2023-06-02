@@ -109,8 +109,8 @@ const initialCards = [
     e.preventDefault();
     const titleValue = titleInputField.value
     const urlValue = urlInputField.value
-
-    return console.log(titleValue , urlValue)
+    console.log(urlValue)
+    return console.log(titleValue)
     //cardsContainer.prepend(getCardElement(createdCard));
 
     //closePopup(addWindow);
@@ -134,6 +134,6 @@ const initialCards = [
     cardContainerElement.prepend(cardElement);
   });
   
-  createButton.addEventListener("sumbit", handleAddCard);
+  addForm.addEventListener("submit", handleAddCard);
   
  

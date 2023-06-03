@@ -40,7 +40,7 @@
     cursor: pointer;
   }
   
-.card__like-button-active {
+  .card__like-button-active {
    background-image: url(../images/heart-icon-active.svg);
 
 }

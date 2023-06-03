@@ -34,7 +34,8 @@ const initialCards = [
 /*********************************************************************************************/
 /***************************************ELEMENTS**********************************************/
 /*********************************************************************************************/
-  const cardsContainer = document.querySelector(".cards"); 
+  const cardsWrap = document.querySelector('.cards_list');
+  const cardsContainer = document.querySelector('.cards'); 
   const profileEditButton = document.querySelector('#profile-edit-button');
   const profileEditModal = document.querySelector('#profile-edit-modal');
   const profileAddModal = document.querySelector('#profile-add-modal');
@@ -88,6 +89,12 @@ const initialCards = [
     
     return cardElement;
   }
+
+  function renderCard(cardData, wrapper){
+    const cardElement = getCardElement(cardData);
+    cardContainerElement.prepend(cardElement);
+
+  };
   
   /*********************************************************************************************/
   /***************************************EVENT HANDLERS****************************************/
@@ -109,10 +116,8 @@ const initialCards = [
     e.preventDefault();
     const name = titleInputField.value;
     const link = linkInputField.value;
-   
-    cardsContainer.prepend(getCardElement(createdCard));
-
-    closePopup(addWindow);
+    renderCard({name, link}, cardsWrap )
+    closeModal(profileAddModal);
     profileAddForm.reset();
   }
   /*********************************************************************************************/

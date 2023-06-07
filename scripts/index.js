@@ -108,7 +108,7 @@ const initialCards = [
     cardImageElement.src = cardData.link;
     cardImageElement.alt = cardData.name;
     cardTitleElement.textContent = cardData.name;
-    
+    console.log(cardData)
     return cardElement;
   }  
   
@@ -134,7 +134,7 @@ const initialCards = [
     e.preventDefault();
     const name = titleInputField.value;
     const link = linkInputField.value;
-    renderCard( name , link , cardsWrap )
+    renderCard( {name , link} , cardsWrap )
     closeModal(profileAddModal);
     addForm.reset();
   }

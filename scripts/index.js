@@ -54,8 +54,8 @@ const initialCards = [
   const linkInputField = document.querySelector("#link");
   const createButton = document.querySelector("#create-btn");
 
-  const previewPopup = document.querySelector("#preview");
-  const closePreviewPopupButton = previewPopup.querySelector("#preview-close");
+  const previewModal = document.querySelector("#preview");
+  const previewModalCloseButton = previewModal.querySelector("#preview-close");
   /*********************************************************************************************/
   /***************************************FUNCTIONS*********************************************/
   /*********************************************************************************************/
@@ -77,14 +77,14 @@ const initialCards = [
   function handlePreviewClick(cardData) {
     const previewLink = cardData.link;
     const previewAlt = cardData.name;
-    const previewCaption = cardData.name;
-    const modalPreviewImage = previewPopup.querySelector(".modal__preview-image");
+    const previewCaption = cardData.name; 
+    const modalPreviewImage = previewModal.querySelector(".modal__preview-image");
     const modalPreviewPictureCaption =
-      previewPopup.querySelector(".modal__caption");
+    previewModal.querySelector(".modal__caption");
     modalPreviewImage.setAttribute("src", previewLink);
     modalPreviewImage.setAttribute("alt", previewAlt);
     modalPreviewPictureCaption.textContent = cardData.name;
-    openPopup(previewPopup);
+    openModal(previewModal);
   }
 
 
@@ -103,7 +103,7 @@ const initialCards = [
       e.target.closest(".card").remove();
     }  
 
-    //cardImage.addEventListener("click", () => handlePreviewClick(data)); 
+    cardImageElement.addEventListener("click", () => handlePreviewClick(cardData)); 
     
     deleteButtons.addEventListener("click", deleteCard);
 
@@ -165,12 +165,12 @@ const initialCards = [
   
   profileEditForm.addEventListener('submit' , handleProfileEditSubmit);
   
-  addNewCardButton.addEventListener('click', () => openModal(profileAddModal));
-  
+  addNewCardButton.addEventListener('click' , () => openModal(profileAddModal));
+  addForm.addEventListener("submit" , handleAddCard);
+  previewModalCloseButton.addEventListener('click' , () => closeModal(previewModal));
   initialCards.forEach((cardData) => renderCard(cardData , cardsWrap));
   
-  addForm.addEventListener("submit", handleAddCard);
-  
+   
 
   
   

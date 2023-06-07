@@ -62,6 +62,7 @@ const initialCards = [
   function openModal(modal){
     modal.classList.add("modal_opened");
   }
+  
   function closeModal(modal){
     modal.classList.remove("modal_opened");
   }
@@ -84,8 +85,6 @@ const initialCards = [
     openModal(previewModal);
   }
 
-
-  
   function getCardElement(cardData){
     const cardElement = cardTemplate.cloneNode(true);
     const cardImageElement = cardElement.querySelector(".card__image");

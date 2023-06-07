@@ -60,10 +60,10 @@ const initialCards = [
   
   
   function openModal(modal){
-    modal.classList.add('modal_opened');
+    modal.classList.add("modal_opened");
   }
   function closeModal(modal){
-    modal.classList.remove('modal_opened');
+    modal.classList.remove("modal_opened");
   }
   
   function renderCard(cardData, wrapper){
@@ -100,11 +100,11 @@ const initialCards = [
       e.target.closest(".card").remove();
     }  
 
-    cardImageElement.addEventListener("click", () => handlePreviewClick(cardData)); 
+    cardImageElement.addEventListener('click', () => handlePreviewClick(cardData)); 
     
-    deleteButtons.addEventListener("click", deleteCard);
+    deleteButtons.addEventListener('click', deleteCard);
 
-    likeButtons.addEventListener("click", handleLikeIcon);
+    likeButtons.addEventListener('click', handleLikeIcon);
     
     cardImageElement.src = cardData.link;
     cardImageElement.alt = cardData.name;

@@ -48,12 +48,10 @@ const initialCards = [
   const cardContainerElement = document.querySelector(".cards__container");
   const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
   const addNewCardButton = document.querySelector("#profile-add-button")
-  
   const addForm = document.querySelector("#add-form");
   const titleInputField = document.querySelector("#title");
   const linkInputField = document.querySelector("#link");
   const createButton = document.querySelector("#create-btn");
-
   const previewModal = document.querySelector("#preview");
   const previewModalCloseButton = previewModal.querySelector("#preview-close");
   /*********************************************************************************************/
@@ -72,7 +70,6 @@ const initialCards = [
     const cardElement = getCardElement(cardData); 
     cardContainerElement.prepend(cardElement);
   }  
-
 
   function handlePreviewClick(cardData) {
     const previewLink = cardData.link;
@@ -116,20 +113,11 @@ const initialCards = [
     return cardElement;
   }  
   
-  
-  
-  
-  
-  
-
-
-
-
-
-
   /*********************************************************************************************/
   /***************************************EVENT HANDLERS****************************************/
   /*********************************************************************************************/
+  
+  
   function handleProfileEditSubmit(e){
     e.preventDefault();
     profileTitle.textContent = profileTitleInput.value;
@@ -148,8 +136,6 @@ const initialCards = [
     const name = titleInputField.value;
     const link = linkInputField.value;
     renderCard( name , link , cardsWrap )
-    
-
     closeModal(profileAddModal);
     addForm.reset();
   }

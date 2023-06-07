@@ -11,8 +11,8 @@
     z-index: 1;
     background-color: rgba(0, 0, 0, 0.5);
     display: flex;
-    visibility: none; 
-    opacity: 0; 
+    visibility: none;
+    opacity: 0;
     pointer-events: none;
     transition: visibility 0s 0.5s, opacity 0.5s linear;
   }
@@ -167,7 +167,7 @@
 
     .modal__button {
       height: 46px;
-      width: 100%
+      width: 100%;
       /* margin: 45px 22px 25px; */
       /* padding-left: 10px; */
       /* padding-right: 10px; */

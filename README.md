@@ -1,4 +1,4 @@
-# Project 5: Around The U.S.
+# Project 6: Around The U.S.
 
 ### Overview  
 
@@ -16,6 +16,7 @@
 * Array Methods
 * DOM Manipulation 
 * Advanced DOM Manipulation
+
 
 **Intro**
   

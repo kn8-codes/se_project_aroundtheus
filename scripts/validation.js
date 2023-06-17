@@ -16,11 +16,10 @@ function hideInputError(formElements , inputElement , {inputErrorClass , errorCl
 
 function checkInputValidity(formElements , inputElement , options){
     if(!inputElement.validity.valid) {
-        showInputError(formElements , inputElement , options);
-    }else{
-        hideInputError(formElements , inputElement , options)
+       return showInputError(formElements , inputElement , options);
     }
-
+       hideInputError(formElements , inputElement , options)
+    
 }
 
 function toggleButtonState(inputElements , submitButton, {inactiveButtonSelector}){
@@ -33,13 +32,11 @@ function toggleButtonState(inputElements , submitButton, {inactiveButtonSelector
 
     if(foundInvalid) {
         submitButton.classList.add(inactiveButtonSelector)
-        submitButton.disabled = true;
+        return submitButton.disabled = true;
     }
-    else {
+   
         submitButton.classList.remove(inactiveButtonSelector)
         submitButton.disabled = flase;
-    }
-
 }
 
 function setEventListeners(formElements, options){

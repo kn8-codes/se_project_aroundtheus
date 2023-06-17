@@ -85,7 +85,7 @@
               <span class="modal__error" id="edit-modal-input-description_error"></span>
             </fieldset>
             <fieldset class="modal__fieldset">
-              <button type="submit" class="modal__button" id="save-btn">
+              <button type="submit" class="modal__button" id="save-btn" disabled>
                 Save
               </button>
             </fieldset>
@@ -108,6 +108,7 @@
                 placeholder="Title"
                 required
               />
+              <span class="modal__error" id="edit-modal-input-description_error"></span>
               <input
                 type="url"
                 class="modal__input modal__input_type_description"
@@ -115,9 +116,10 @@
                 placeholder="Image Link"
                 required
               />
+              <span class="modal__error" id="edit-modal-input-description_error"></span>
             </fieldset>
             <fieldset class="modal__fieldset">
-              <button class="modal__button" id="create-btn" type="submit">
+              <button class="modal__button" id="create-btn" type="submit" disabled>
                 Create
               </button>
             </fieldset>

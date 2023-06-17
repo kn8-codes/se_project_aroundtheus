@@ -133,6 +133,8 @@
 
   .modal_error_visable{
     color: red;
+    border: 1px solid red;
+    opacity: 1;
   }
   
   @media screen and (max-width: 620px) {

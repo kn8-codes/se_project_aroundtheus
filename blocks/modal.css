@@ -130,6 +130,10 @@
     opacity: 0.8;
     cursor: pointer;
   }
+
+  .modal_error_visable{
+    color: red;
+  }
   
   @media screen and (max-width: 620px) {
     .modal__close {

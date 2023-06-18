@@ -131,9 +131,8 @@
     cursor: pointer;
   }
 
-  .modal_error_visable{
-    color: red;
-    border: 1px solid red;
+  .modal_input_type_error{
+    border-bottom: 1px solid red;
     opacity: 1;
   }
   

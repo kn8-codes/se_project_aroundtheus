@@ -131,9 +131,24 @@
     cursor: pointer;
   }
 
-  .modal_input_type_error{
-    border-bottom: 1px solid red;
-    opacity: 1;
+  .modal__error {
+    font-family: "Inter";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    color: #ff0000;
+  }
+  
+  .modal__error_visible {
+    border-bottom: 1px solid #ff0000;
+  }
+  
+  .modal__button_disabled {
+    opacity: 0.2;
+    background-color: #ffffff;
+    color: #000000;
+    border: 1px solid #000000;
   }
   
   @media screen and (max-width: 620px) {

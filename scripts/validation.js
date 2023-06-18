@@ -25,7 +25,7 @@ function checkInputValidity(formElements , inputElement , options){
 function toggleButtonState(inputElements , submitButton, {inactiveButtonSelector}){
     const foundInvalid = false;
     inputElements.forEach(input => {
-      if(!inputElement.validity.valid){
+      if(!inputElements.validity.valid){
         foundInvalid = true;
       } 
     });
@@ -70,9 +70,9 @@ const config = {
   formSelector : ".modal__form",
   inputSelector: ".modal__input",  
   submitButtonSelector: ".modal__button",  
-  inactiveButtonSelector: ".modal_button_disabled",  
-  inputErrorClass: "modal_input_type_error",  
-  errorClass: "modal_error_visable",  
+  inactiveButtonSelector: ".modal__button_disabled",  
+  inputErrorClass: "modal__input_type_error",  
+  errorClass: "modal__error_visable",  
 };
 
 enableValidation(config);

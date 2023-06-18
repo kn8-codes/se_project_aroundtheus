@@ -113,6 +113,10 @@
     margin-bottom: 0;
   }
   
+  .modal__input_type_error{
+    margin: 0;
+  }
+
   .modal__button {
     height: 50.15px;
     width: 100%;
@@ -183,6 +187,10 @@
     .modal__input {
       margin: 0 0 29px;
       width: 100%;
+    }
+
+    .modal__input_type_error{
+      margin: 0;
     }
 
     .modal__button {

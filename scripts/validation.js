@@ -23,13 +23,14 @@ function checkInputValidity(formElements , inputElement , options){
 }
 
 function toggleButtonState(inputElements , submitButton, {inactiveButtonSelector}){
-    const foundInvalid = false;
+    console.log(inputElements);
+    let foundInvalid = false;
     inputElements.forEach(input => {
-      if(!inputElements.validity.valid){
+      if(!input.validity.valid){
         foundInvalid = true;
       } 
     });
-
+console.log(foundInvalid)
     if(foundInvalid) {
         submitButton.classList.add(inactiveButtonSelector)
         return submitButton.disabled = true;
@@ -52,9 +53,7 @@ function setEventListeners(formElements, options){
 }
 
 function enableValidation(options){
-    console.log(options)
-    const formElements = [...document.querySelectorAll(options.formSelector)];
-    console.log(formElements)
+  const formElements = [...document.querySelectorAll(options.formSelector)];
     formElements.forEach((formElements) => {
         formElements.addEventListener("submit" , (e) => {
             e.preventDefault();
@@ -70,7 +69,7 @@ const config = {
   formSelector : ".modal__form",
   inputSelector: ".modal__input",  
   submitButtonSelector: ".modal__button",  
-  inactiveButtonSelector: ".modal__button_disabled",  
+  inactiveButtonSelector: "modal__button_disabled",  
   inputErrorClass: "modal__input_type_error",  
   errorClass: "modal__error_visable",  
 };

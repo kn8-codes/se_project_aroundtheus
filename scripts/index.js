@@ -55,6 +55,7 @@ const initialCards = [
   const previewModal = document.querySelector("#preview");
   const previewModalImage = previewModal.querySelector(".modal__preview-image");
   const previewModalCloseButton = previewModal.querySelector("#preview-close");
+  const overlay = document.querySelector(".modal_opened");
   /*********************************************************************************************/
   /***************************************FUNCTIONS*********************************************/
   /*********************************************************************************************/
@@ -142,11 +143,18 @@ const initialCards = [
     closeModal(profileAddModal);
     addForm.reset();
   }
+  
+  // function logKeyStroke(evt) {
+  //   console.log(evt.keycode)
+  // }
   /*********************************************************************************************/
   /***********************************EVENT LISTENERS*******************************************/
   /*********************************************************************************************/
   
   profileEditButton.addEventListener('click' , openProfileForm);
+  
+  overlay.addEventListener('click' , (event) => event.target && closeModal(event.target));
+  //overlay.addEventListener('keydown' , logKeyStroke(evt));
   
   profileCloseEditModal.addEventListener('click' , () => closeModal(profileEditModal));
   

@@ -22,22 +22,24 @@ function checkInputValidity(formElements , inputElement , options){
     
 }
 
+function hasInvalidInput(input){
+   return !input.every((inputElements) => inputElements.validity.valid)
+}
+
 function toggleButtonState(inputElements , submitButton, {inactiveButtonSelector}){
-    console.log(inputElements);
     let foundInvalid = false;
     inputElements.forEach(input => {
-      if(!input.validity.valid){
+      if(hasInvalidInput(inputElements)){
         foundInvalid = true;
       } 
     });
-console.log(foundInvalid)
     if(foundInvalid) {
         submitButton.classList.add(inactiveButtonSelector)
         return submitButton.disabled = true;
     }
    
         submitButton.classList.remove(inactiveButtonSelector)
-        submitButton.disabled = flase;
+        submitButton.disabled = false;
 }
 
 function setEventListeners(formElements, options){

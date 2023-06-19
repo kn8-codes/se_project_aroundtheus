@@ -154,6 +154,11 @@
     color: #000000;
     border: 1px solid #000000;
   }
+
+  .modal__button_disabled:hover {
+    opacity: 0.2;
+    cursor: default;
+} 
   
   @media screen and (max-width: 620px) {
     .modal__close {
@@ -199,5 +204,12 @@
       /* margin: 45px 22px 25px; */
       /* padding-left: 10px; */
       /* padding-right: 10px; */
-    }
+    } 
+    
+    .modal__button_disabled:hover {
+      opacity: 0.2;
+      cursor: default;
+   }
   }
+
+ 

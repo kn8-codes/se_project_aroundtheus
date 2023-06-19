@@ -15,7 +15,7 @@ function hideInputError(formElements , inputElement , {inputErrorClass , errorCl
 }
 
 function checkInputValidity(formElements , inputElement , options){
-    if(!inputElement.validity.valid) {
+  if(!inputElement.validity.valid) {
        return showInputError(formElements , inputElement , options);
     }
        hideInputError(formElements , inputElement , options)
@@ -53,6 +53,8 @@ function setEventListeners(formElements, options){
       });    
     });
 }
+
+
 
 function enableValidation(options){
   const formElements = [...document.querySelectorAll(options.formSelector)];

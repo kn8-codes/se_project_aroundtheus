@@ -57,7 +57,9 @@ const initialCards = [
   const previewModalCloseButton = previewModal.querySelector("#preview-close");
   const overlay = document.querySelector(".modal");
   const overlay2 = document.querySelector(".page");
- 
+  const modalPreviewPictureCaption =
+  previewModal.querySelector(".modal__caption");
+  
   /*********************************************************************************************/
   /***************************************FUNCTIONS*********************************************/
   /*********************************************************************************************/
@@ -80,8 +82,6 @@ const initialCards = [
     const previewLink = cardData.link;
     const previewAlt = cardData.name;
     const previewCaption = cardData.name; 
-    const modalPreviewPictureCaption =
-    previewModal.querySelector(".modal__caption");
     previewModalImage.setAttribute("src", previewLink);
     previewModalImage.setAttribute("alt", previewAlt);
     modalPreviewPictureCaption.textContent = cardData.name;
@@ -146,19 +146,27 @@ const initialCards = [
     addForm.reset();
   }
   
-  // function logKeyStroke(evt) {
-  //   console.log(evt.keycode)
-  // }
+   function logKeyStroke(evt) {
+    console.log(evt.key)
+   }
   /*********************************************************************************************/
   /***********************************EVENT LISTENERS*******************************************/
   /*********************************************************************************************/
   
   profileEditButton.addEventListener('click' , openProfileForm);
   
-  overlay.addEventListener('click' , (event) => event.target && closeModal(event.target));
-  overlay2.addEventListener('click' , (event) => event.target && closeModal(event.target));
+  overlay.addEventListener('mousedown' , (event) => event.target && closeModal(event.target));
+  overlay2.addEventListener('mousedown' , (event) => event.target && closeModal(event.target));
+  document.addEventListener('keydown' , (event) => {
+    if(event.key === 'Escape') {
+      const modalEscape = document.querySelector(".modal_opened");
+      closeModal(modalEscape)
+    }
+  });
 
-  //overlay.addEventListener('keydown' , logKeyStroke(evt));
+  overlay.addEventListener('keydown' , (event)=>
+    console.log(event.target)
+  );
   profileCloseEditModal.addEventListener('click' , () => closeModal(profileEditModal));
   
   profileCloseAddModal.addEventListener('click' , () => closeModal(profileAddModal));

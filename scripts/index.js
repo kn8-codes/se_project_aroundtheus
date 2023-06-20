@@ -118,8 +118,7 @@ const initialCards = [
   /***************************************EVENT HANDLERS****************************************/
   /*********************************************************************************************/
   
-  
-  
+
   function handleProfileEditSubmit(e){
     e.preventDefault();
     profileTitle.textContent = profileTitleInput.value;

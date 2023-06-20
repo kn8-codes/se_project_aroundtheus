@@ -55,8 +55,8 @@ const initialCards = [
   const previewModal = document.querySelector("#preview");
   const previewModalImage = previewModal.querySelector(".modal__preview-image");
   const previewModalCloseButton = previewModal.querySelector("#preview-close");
-  const overlay = document.querySelector(".modal");
-  const overlay2 = document.querySelector(".page");
+  
+  const overlay = document.querySelector(".page");
   const modalPreviewPictureCaption =
   previewModal.querySelector(".modal__caption");
   
@@ -119,6 +119,7 @@ const initialCards = [
   /*********************************************************************************************/
   
   
+  
   function handleProfileEditSubmit(e){
     e.preventDefault();
     profileTitle.textContent = profileTitleInput.value;
@@ -144,6 +145,7 @@ const initialCards = [
     renderCard( {name , link} , cardsWrap )
     closeModal(profileAddModal);
     addForm.reset();
+    toggleButtonState();
   }
   
    function logKeyStroke(evt) {
@@ -155,8 +157,8 @@ const initialCards = [
   
   profileEditButton.addEventListener('click' , openProfileForm);
   
+  
   overlay.addEventListener('mousedown' , (event) => event.target && closeModal(event.target));
-  overlay2.addEventListener('mousedown' , (event) => event.target && closeModal(event.target));
   document.addEventListener('keydown' , (event) => {
     if(event.key === 'Escape') {
       const modalEscape = document.querySelector(".modal_opened");

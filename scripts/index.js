@@ -55,10 +55,8 @@ const initialCards = [
   const previewModal = document.querySelector("#preview");
   const previewModalImage = previewModal.querySelector(".modal__preview-image");
   const previewModalCloseButton = previewModal.querySelector("#preview-close");
-  
   const overlay = document.querySelector(".page");
-  const modalPreviewPictureCaption =
-  previewModal.querySelector(".modal__caption");
+  const modalPreviewPictureCaption = previewModal.querySelector(".modal__caption");
   
   /*********************************************************************************************/
   /***************************************FUNCTIONS*********************************************/
@@ -97,27 +95,21 @@ const initialCards = [
     const handleLikeIcon = (e) => {
       e.target.classList.toggle("card__like-active");
     };  
-    
     function deleteCard(e) {
       e.target.closest(".card").remove();
     }  
-
     cardImageElement.addEventListener('click', () => handlePreviewClick(cardData)); 
-    
     deleteButton.addEventListener('click', deleteCard);
-
     likeButton.addEventListener('click', handleLikeIcon);
-    
     cardImageElement.src = cardData.link;
     cardImageElement.alt = cardData.name;
     cardTitleElement.textContent = cardData.name;
     return cardElement;
   }  
-  
+    
   /*********************************************************************************************/
   /***************************************EVENT HANDLERS****************************************/
   /*********************************************************************************************/
-  
 
   function handleProfileEditSubmit(e){
     e.preventDefault();
@@ -150,6 +142,15 @@ const initialCards = [
    function logKeyStroke(evt) {
     console.log(evt.key)
    }
+
+   //function closeModalOnRemoteClick(e) {
+    // target is the element on which the event happened
+    // currentTarget is the modal
+    // if they are the same then we should close the modal
+    //if (e.target === e.currentTarget || e.target.classList.contains("modal__close")) { 
+    //   closeModal(e.target)
+   // }
+  //} 
   /*********************************************************************************************/
   /***********************************EVENT LISTENERS*******************************************/
   /*********************************************************************************************/
@@ -158,6 +159,7 @@ const initialCards = [
   
   
   overlay.addEventListener('mousedown' , (event) => event.target && closeModal(event.target));
+  //overlay.addEventListener('mousedown' , closeModalOnRemoteClick());
   document.addEventListener('keydown' , (event) => {
     if(event.key === 'Escape') {
       const modalEscape = document.querySelector(".modal_opened");
@@ -171,9 +173,7 @@ const initialCards = [
   profileCloseEditModal.addEventListener('click' , () => closeModal(profileEditModal));
   
   profileCloseAddModal.addEventListener('click' , () => closeModal(profileAddModal));
-  
   profileEditForm.addEventListener('submit' , handleProfileEditSubmit);
-  
   addNewCardButton.addEventListener('click' , () => openModal(profileAddModal));
   addForm.addEventListener("submit" , handleAddCard);
   previewModalCloseButton.addEventListener('click' , () => closeModal(previewModal));

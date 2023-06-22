@@ -23,29 +23,27 @@ function checkInputValidity(formElements , inputElement , options){
 }
 
 function hasInvalidInput(input){
-   return !input.every((inputElements) => inputElements.validity.valid)
+   return input.validity.valid
 }
 
 function toggleButtonState(inputElements , submitButton, {inactiveButtonSelector}){
-    let foundInvalid = false;
-    inputElements.forEach(input => {
-      if(hasInvalidInput(inputElements)){
-        foundInvalid = true;
-      } 
-    });
-    if(foundInvalid) {
-        submitButton.classList.add(inactiveButtonSelector)
-        return submitButton.disabled = true;
-    }
-   
+    if(getFormValidity(inputElements)) {
         submitButton.classList.remove(inactiveButtonSelector)
+        submitButton.disabled = true;
+    } else {
+        submitButton.classList.add(inactiveButtonSelector)
         submitButton.disabled = false;
+    }
+}
+
+function getFormValidity(inputElements) {
+    return inputElements.every(input => hasInvalidInput(input));
 }
 
 function setEventListeners(formElements, options){
     const { inputSelector } = options;
     const inputElements = [...formElements.querySelectorAll(inputSelector)];
-    const submitButton = formElements.querySelector('.modal__button');
+    const submitButton = formElements.querySelector('.modal__input');
     inputElements.forEach((inputElement) => {
       inputElement.addEventListener("input" , (e) => {
           checkInputValidity(formElements , inputElement , options);  
@@ -64,8 +62,6 @@ function enableValidation(options){
         })
         setEventListeners(formElements , options);
     })
-
-
 };
 
 

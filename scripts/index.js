@@ -136,7 +136,7 @@ const initialCards = [
     renderCard( {name , link} , cardsWrap )
     closeModal(profileAddModal);
     addForm.reset();
-    toggleButtonState();
+    toggleButtonState(inputElements , submitButton, {inactiveButtonSelector});
   }
   
    function logKeyStroke(evt) {
@@ -162,14 +162,11 @@ const initialCards = [
   //overlay.addEventListener('mousedown' , closeModalOnRemoteClick());
   document.addEventListener('keydown' , (event) => {
     if(event.key === 'Escape') {
-      const modalEscape = document.querySelector(".modal_opened");
-      closeModal(modalEscape)
+      const closedModal = document.querySelector(".modal_opened");
+      closeModal(closedModal)
     }
   });
 
-  overlay.addEventListener('keydown' , (event)=>
-    console.log(event.target)
-  );
   profileCloseEditModal.addEventListener('click' , () => closeModal(profileEditModal));
   
   profileCloseAddModal.addEventListener('click' , () => closeModal(profileAddModal));

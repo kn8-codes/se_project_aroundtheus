@@ -65,26 +65,20 @@ const initialCards = [
   
   function openModal(modal){
     modal.classList.add("modal_opened");
+    overlay.addEventListener('mousedown' , closeModalByClick);
+    document.addEventListener('keydown' , closeModalByEscape);
   }
   
   function closeModal(modal){
     modal.classList.remove("modal_opened");
+    overlay.removeEventListener('mousedown' , closeModalByClick);
+    document.removeEventListener('keydown' , closeModalByEscape);
   }
   
   function renderCard(cardData, wrapper){
     const cardElement = getCardElement(cardData); 
     cardContainerElement.prepend(cardElement);
   }  
-
-  function handlePreviewClick(cardData) {
-    const previewLink = cardData.link;
-    const previewAlt = cardData.name;
-    const previewCaption = cardData.name; 
-    previewModalImage.setAttribute("src", previewLink);
-    previewModalImage.setAttribute("alt", previewAlt);
-    modalPreviewPictureCaption.textContent = cardData.name;
-    openModal(previewModal);
-  }
 
   function getCardElement(cardData){
     const cardElement = cardTemplate.cloneNode(true);
@@ -106,11 +100,11 @@ const initialCards = [
     cardTitleElement.textContent = cardData.name;
     return cardElement;
   }  
-    
+  
   /*********************************************************************************************/
   /***************************************EVENT HANDLERS****************************************/
   /*********************************************************************************************/
-
+  
   function handleProfileEditSubmit(e){
     e.preventDefault();
     profileTitle.textContent = profileTitleInput.value;
@@ -127,8 +121,8 @@ const initialCards = [
     fillProfileForm();
     openModal(profileEditModal);
   };
-
-
+  
+  
   function handleAddCard(e) {
     e.preventDefault();
     const name = titleInputField.value;
@@ -137,46 +131,41 @@ const initialCards = [
     closeModal(profileAddModal);
     addForm.reset();
     toggleButtonState(inputElements , submitButton, {inactiveButtonSelector});
+  };
+  
+  function handlePreviewClick(cardData) {
+    const previewLink = cardData.link;
+    const previewAlt = cardData.name;
+    const previewCaption = cardData.name; 
+    previewModalImage.setAttribute("src", previewLink);
+    previewModalImage.setAttribute("alt", previewAlt);
+    modalPreviewPictureCaption.textContent = cardData.name;
+    openModal(previewModal);
   }
   
-   function logKeyStroke(evt) {
-    console.log(evt.key)
-   }
+  function closeModalByEscape(event) {
+    console.log(event)
+    if(event.key === 'Escape') {
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal)
+  }};
 
-   //function closeModalOnRemoteClick(e) {
-    // target is the element on which the event happened
-    // currentTarget is the modal
-    // if they are the same then we should close the modal
-    //if (e.target === e.currentTarget || e.target.classList.contains("modal__close")) { 
-    //   closeModal(e.target)
-   // }
-  //} 
+  function closeModalByClick(event) {
+    event.target && closeModal(event.target)
+  };
+   
+
+  
   /*********************************************************************************************/
   /***********************************EVENT LISTENERS*******************************************/
   /*********************************************************************************************/
   
   profileEditButton.addEventListener('click' , openProfileForm);
-  
-  
-  overlay.addEventListener('mousedown' , (event) => event.target && closeModal(event.target));
   //overlay.addEventListener('mousedown' , closeModalOnRemoteClick());
-  document.addEventListener('keydown' , (event) => {
-    if(event.key === 'Escape') {
-      const closedModal = document.querySelector(".modal_opened");
-      closeModal(closedModal)
-    }
-  });
-
-  profileCloseEditModal.addEventListener('click' , () => closeModal(profileEditModal));
-  
+  profileCloseEditModal.addEventListener('click' , () => closeModal(profileEditModal));  
   profileCloseAddModal.addEventListener('click' , () => closeModal(profileAddModal));
   profileEditForm.addEventListener('submit' , handleProfileEditSubmit);
   addNewCardButton.addEventListener('click' , () => openModal(profileAddModal));
   addForm.addEventListener("submit" , handleAddCard);
   previewModalCloseButton.addEventListener('click' , () => closeModal(previewModal));
   initialCards.forEach((cardData) => renderCard(cardData , cardsWrap));
-  
-   
-
-  
-  

@@ -16,9 +16,9 @@ function hideInputError(formElements , inputElement , {inputErrorClass , errorCl
 
 function checkInputValidity(formElements , inputElement , options){
   if(!inputElement.validity.valid) {
-       return showInputError(formElements , inputElement , options);
+    return showInputError(formElements , inputElement , options);
     }
-       hideInputError(formElements , inputElement , options)
+    hideInputError(formElements , inputElement , options)
     
 }
 
@@ -43,7 +43,7 @@ function getFormValidity(inputElements) {
 function setEventListeners(formElements, options){
     const { inputSelector } = options;
     const inputElements = [...formElements.querySelectorAll(inputSelector)];
-    const submitButton = formElements.querySelector('.modal__input');
+    const submitButton = formElements.querySelector(inputSelector);
     inputElements.forEach((inputElement) => {
       inputElement.addEventListener("input" , (e) => {
           checkInputValidity(formElements , inputElement , options);  

@@ -161,11 +161,11 @@ const initialCards = [
   /*********************************************************************************************/
   
   profileEditButton.addEventListener('click' , openProfileForm);
-  //overlay.addEventListener('mousedown' , closeModalOnRemoteClick());
   profileCloseEditModal.addEventListener('click' , () => closeModal(profileEditModal));  
   profileCloseAddModal.addEventListener('click' , () => closeModal(profileAddModal));
   profileEditForm.addEventListener('submit' , handleProfileEditSubmit);
   addNewCardButton.addEventListener('click' , () => openModal(profileAddModal));
   addForm.addEventListener("submit" , handleAddCard);
   previewModalCloseButton.addEventListener('click' , () => closeModal(previewModal));
+  
   initialCards.forEach((cardData) => renderCard(cardData , cardsWrap));

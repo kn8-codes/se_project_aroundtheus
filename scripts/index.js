@@ -144,10 +144,9 @@ const initialCards = [
   }
   
   function closeModalByEscape(event) {
-    console.log(event)
     if(event.key === 'Escape') {
-    const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal)
+      const openedModal = document.querySelector(".modal_opened");
+      closeModal(openedModal)
   }};
 
   function closeModalByClick(event) {

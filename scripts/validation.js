@@ -17,7 +17,7 @@ function hideInputError(formElements , inputElement , {inputErrorClass , errorCl
 function checkInputValidity(formElements , inputElement , options){
   if(!inputElement.validity.valid) {
     return showInputError(formElements , inputElement , options);
-    }
+  }
     hideInputError(formElements , inputElement , options)
     
 }

@@ -57,7 +57,8 @@ const initialCards = [
   const previewModalCloseButton = previewModal.querySelector("#preview-close");
   const overlay = document.querySelector(".page");
   const modalPreviewPictureCaption = previewModal.querySelector(".modal__caption");
-  
+  const openedModal = document.querySelector(".modal_opened");
+
   /*********************************************************************************************/
   /***************************************FUNCTIONS*********************************************/
   /*********************************************************************************************/
@@ -130,7 +131,7 @@ const initialCards = [
     renderCard( {name , link} , cardsWrap )
     closeModal(profileAddModal);
     addForm.reset();
-    toggleButtonState(inputElements , submitButton, {inactiveButtonSelector});
+    toggleButtonState([titleInputField , linkInputField], createButton, config);
   };
   
   function handlePreviewClick(cardData) {
@@ -146,11 +147,12 @@ const initialCards = [
   function closeModalByEscape(event) {
     if(event.key === 'Escape') {
       const openedModal = document.querySelector(".modal_opened");
-      closeModal(openedModal)
+      closeModal(openedModal);
   }};
 
   function closeModalByClick(event) {
-    event.target && closeModal(event.target)
+    const openedModal = document.querySelector(".modal_opened");
+    closeModal(openedModal);
   };
    
 

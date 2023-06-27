@@ -150,17 +150,11 @@ const initialCards = [
       closeModal(openedModal);
   }};
 
-  function closeModalByClick(event) {
-    console.dir(event.target , event.currentTarget)
-    const openedModal = document.querySelector(".modal_opened");
-    if (event.target === event.currentTarget){
-      closeModal(event.target);
-    } else {
-      closeModal(openedModal)
+  function closeModalByClick(e) {
+    if (e.target.classList.contains("modal_opened")) {
+      closeModal(e.target);
     }
-  };
-   
-
+  }
   
   /*********************************************************************************************/
   /***********************************EVENT LISTENERS*******************************************/

@@ -151,8 +151,13 @@ const initialCards = [
   }};
 
   function closeModalByClick(event) {
+    console.dir(event.target , event.currentTarget)
     const openedModal = document.querySelector(".modal_opened");
-    closeModal(openedModal);
+    if (event.target === event.currentTarget){
+      closeModal(event.target);
+    } else {
+      closeModal(openedModal)
+    }
   };
    
 

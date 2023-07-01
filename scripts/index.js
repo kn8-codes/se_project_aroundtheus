@@ -1,4 +1,5 @@
-import Card from "./Card";
+import Card from "./Card.js";
+import FormValidator from "./FormValidator.js";
 
 const initialCards = [
     {
@@ -33,13 +34,25 @@ const initialCards = [
   ];
 
 
-const cardDats = {
+const cardData = {
   name: "Yosemite Valley",
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-const card = new Card(cardData);
 
+const card = new Card(cardData, "#card-template");
+card.getView();
+
+const options = {
+  formSelector : ".modal__form",
+  inputSelector: ".modal__input",  
+  submitButtonSelector: ".modal__button",  
+  inactiveButtonSelector: "modal__button_disabled",  
+  inputErrorClass: "modal__input_type_error",  
+  errorClass: "modal__error_visable",
+};
+
+const editFormValidator = new FormValidator(options, formElement);
 
 /*********************************************************************************************/
 /***************************************ELEMENTS**********************************************/
@@ -89,6 +102,8 @@ const card = new Card(cardData);
   
   function renderCard(cardData, wrapper){
     const cardElement = getCardElement(cardData); 
+    //const cardInstance = new Card();
+    //const cardElement = cardInstance.getView();
     cardContainerElement.prepend(cardElement);
   }  
 
@@ -98,15 +113,15 @@ const card = new Card(cardData);
     const cardTitleElement = cardElement.querySelector(".card__label-title");      
     const likeButton = cardElement.querySelector(".card__like-button");
     const deleteButton = cardElement.querySelector(".card__delete-button")
-    const handleLikeIcon = (e) => {
-      e.target.classList.toggle("card__like-active");
-    };  
-    function deleteCard(e) {
-      e.target.closest(".card").remove();
-    }  
+    //const handleLikeIcon = (e) => {
+    //  e.target.classList.toggle("card__like-active");
+    //};  
+    //function handleDeleteCard(e) {
+    //  e.target.closest(".card").remove();
+    //}  
     cardImageElement.addEventListener('click', () => handlePreviewClick(cardData)); 
-    deleteButton.addEventListener('click', deleteCard);
-    likeButton.addEventListener('click', handleLikeIcon);
+    //deleteButton.addEventListener('click', handleDeleteCard);
+    //likeButton.addEventListener('click', handleLikeIcon);
     cardImageElement.src = cardData.link;
     cardImageElement.alt = cardData.name;
     cardTitleElement.textContent = cardData.name;

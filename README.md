@@ -16,6 +16,10 @@
 * Array Methods
 * DOM Manipulation 
 * Advanced DOM Manipulation
+* Objects
+* Classes
+* Modules
+* OOP
 
 
 **Intro**

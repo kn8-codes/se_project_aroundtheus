@@ -1,15 +1,15 @@
 export default class FormValidator{
     constructor(options, formElement){
       this._form = formElement;
-      this._inputSelector = settings.inputSelector;
-      this._submitButtonSelector = settings.submitButtonSelector;  
-      this._inactiveButtonSelector = settings.inactiveButtonSelector;
-      this._inputErrorClass = settings.inputErrorClass;
-      this._errorClass = settings.errorClass;
+      this._inputSelector = options.inputSelector;
+      this._submitButtonSelector = options.submitButtonSelector;  
+      this._inactiveButtonSelector = options.inactiveButtonSelector;
+      this._inputErrorClass = options.inputErrorClass;
+      this._errorClass = options.errorClass;
     }
 
     _hasValidInput(){
-      
+
     }
 
     _toggleButtonState(){

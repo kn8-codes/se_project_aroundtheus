@@ -52,7 +52,7 @@ const options = {
   errorClass: "modal__error_visable",
 };
 
-const editFormValidator = new FormValidator(options, formElement);
+const editFormValidator = new FormValidator(options);
 
 /*********************************************************************************************/
 /***************************************ELEMENTS**********************************************/

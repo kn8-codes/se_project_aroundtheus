@@ -1,5 +1,6 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
+import { closeModal, openModal } from "./utils.js";
 
 const initialCards = [
     {
@@ -52,7 +53,6 @@ const options = {
   errorClass: "modal__error_visable",
 };
 
-const editFormValidator = new FormValidator(options);
 
 /*********************************************************************************************/
 /***************************************ELEMENTS**********************************************/
@@ -82,23 +82,22 @@ const editFormValidator = new FormValidator(options);
   const overlay = document.querySelector(".page");
   const modalPreviewPictureCaption = previewModal.querySelector(".modal__caption");
   const openedModal = document.querySelector(".modal_opened");
-
   /*********************************************************************************************/
   /***************************************FUNCTIONS*********************************************/
   /*********************************************************************************************/
   
   
-  function openModal(modal){
-    modal.classList.add("modal_opened");
-    overlay.addEventListener('mousedown' , closeModalByClick);
-    document.addEventListener('keydown' , closeModalByEscape);
-  }
+  // function openModal(modal){
+  //   modal.classList.add("modal_opened");
+  //   overlay.addEventListener('mousedown' , closeModalByClick);
+  //   document.addEventListener('keydown' , closeModalByEscape);
+  // }
   
-  function closeModal(modal){
-    modal.classList.remove("modal_opened");
-    overlay.removeEventListener('mousedown' , closeModalByClick);
-    document.removeEventListener('keydown' , closeModalByEscape);
-  }
+  // function closeModal(modal){
+  //   modal.classList.remove("modal_opened");
+  //   overlay.removeEventListener('mousedown' , closeModalByClick);
+  //   document.removeEventListener('keydown' , closeModalByEscape);
+  // }
   
   function renderCard(cardData, wrapper){
     const cardElement = getCardElement(cardData); 
@@ -170,17 +169,17 @@ const editFormValidator = new FormValidator(options);
     openModal(previewModal);
   }
   
-  function closeModalByEscape(event) {
-    if(event.key === 'Escape') {
-      const openedModal = document.querySelector(".modal_opened");
-      closeModal(openedModal);
-  }};
+  // function closeModalByEscape(event) {
+  //   if(event.key === 'Escape') {
+  //     const openedModal = document.querySelector(".modal_opened");
+  //     closeModal(openedModal);
+  // }};
 
-  function closeModalByClick(e) {
-    if (e.target.classList.contains("modal_opened")) {
-      closeModal(e.target);
-    }
-  }
+  // function closeModalByClick(e) {
+  //   if (e.target.classList.contains("modal_opened")) {
+  //     closeModal(e.target);
+  //   }
+  // }
   
   /*********************************************************************************************/
   /***********************************EVENT LISTENERS*******************************************/
@@ -195,3 +194,9 @@ const editFormValidator = new FormValidator(options);
   previewModalCloseButton.addEventListener('click' , () => closeModal(previewModal));
   
   initialCards.forEach((cardData) => renderCard(cardData , cardsWrap));
+
+
+const editFormValidator = new FormValidator(options, profileEditForm);
+const addCardValidator = new FormValidator(options, addForm)
+editFormValidator.enableValidation();
+addCardValidator.enableValidation();

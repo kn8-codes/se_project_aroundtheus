@@ -1,3 +1,5 @@
+const overlay = document.querySelector(".page");
+
 export function openModal(modal){
   modal.classList.add("modal_opened");
   overlay.addEventListener('mousedown' , closeModalByClick);

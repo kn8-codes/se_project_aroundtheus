@@ -1,4 +1,4 @@
-# Project 6: Around The U.S.
+# Project 7: Around The U.S.
 
 ### Overview  
 
@@ -24,8 +24,7 @@
 
 **Intro**
   
-This project was an excercise in creating a usable interface that 
-is functional and visually appealing on all display sizes.   
+This project is a work in progress to display the skills I have acquired  
   
 **Figma**  
   

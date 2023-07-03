@@ -30,15 +30,18 @@ export default class Card{
         })
     }
     _handleLikeIcon(){
+        console.log('like button')
         this._cardElement.querySelector('.card__like-button').classList.toggle('card__like-active')
     }
 
     _handleDeleteCard(){
+       console.log('delete card')
         this._cardElement.remove();
         this._cardElement = null;
     }
 
     _handlePreviewClick(){
+        console.log('preview Clcik')
         const modalPreview = document.querySelector("#modal-preview")
         const modalImage = document.querySelector(".modal__image");
         const imageTitle = document.querySelector(".modal__text");

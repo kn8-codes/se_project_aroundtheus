@@ -1,6 +1,7 @@
 import Card from "./Card.js";
 import FormValidator from "./FormValidator.js";
 import { closeModal, openModal } from "./utils.js";
+//import { toggleButtonState } from "./FormValidator.js"
 
 const initialCards = [
     {
@@ -40,10 +41,6 @@ const cardData = {
   link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
 };
 
-
-const card = new Card(cardData, "#card-template");
-card.getView();
-
 const options = {
   formSelector : ".modal__form",
   inputSelector: ".modal__input",  
@@ -82,6 +79,7 @@ const options = {
   const overlay = document.querySelector(".page");
   const modalPreviewPictureCaption = previewModal.querySelector(".modal__caption");
   const openedModal = document.querySelector(".modal_opened");
+  const cardSelector = '#card-template'
   /*********************************************************************************************/
   /***************************************FUNCTIONS*********************************************/
   /*********************************************************************************************/
@@ -99,34 +97,43 @@ const options = {
   //   document.removeEventListener('keydown' , closeModalByEscape);
   // }
   
-  function renderCard(cardData, wrapper){
-    const cardElement = getCardElement(cardData); 
-    //const cardInstance = new Card();
-    //const cardElement = cardInstance.getView();
-    cardContainerElement.prepend(cardElement);
-  }  
+  // function renderCard(cardData, wrapper){
+  //   const cardElement = getCardElement(cardData); 
+  //   const cardInstance = new Card(cardData, cardSelector);
+  //   const cardElement = cardInstance.getView();
+  //   cardContainerElement.prepend(cardElement);
+  // }  
 
-  function getCardElement(cardData){
-    const cardElement = cardTemplate.cloneNode(true);
-    const cardImageElement = cardElement.querySelector(".card__image");
-    const cardTitleElement = cardElement.querySelector(".card__label-title");      
-    const likeButton = cardElement.querySelector(".card__like-button");
-    const deleteButton = cardElement.querySelector(".card__delete-button")
+  // function getCardElement(cardData){
+  //   const cardElement = cardTemplate.cloneNode(true);
+  //   const cardImageElement = cardElement.querySelector(".card__image");
+  //   const cardTitleElement = cardElement.querySelector(".card__label-title");      
+  //   const likeButton = cardElement.querySelector(".card__like-button");
+  //   const deleteButton = cardElement.querySelector(".card__delete-button")
     //const handleLikeIcon = (e) => {
     //  e.target.classList.toggle("card__like-active");
     //};  
     //function handleDeleteCard(e) {
     //  e.target.closest(".card").remove();
     //}  
-    cardImageElement.addEventListener('click', () => handlePreviewClick(cardData)); 
-    //deleteButton.addEventListener('click', handleDeleteCard);
-    //likeButton.addEventListener('click', handleLikeIcon);
-    cardImageElement.src = cardData.link;
-    cardImageElement.alt = cardData.name;
-    cardTitleElement.textContent = cardData.name;
-    return cardElement;
-  }  
+    // cardImageElement.addEventListener('click', () => handlePreviewClick(cardData)); 
+    // deleteButton.addEventListener('click', handleDeleteCard);
+    // likeButton.addEventListener('click', handleLikeIcon);
+  //   cardImageElement.src = cardData.link;
+  //   cardImageElement.alt = cardData.name;
+  //   cardTitleElement.textContent = cardData.name;
+  //   return cardElement;
+  // }  
   
+  function createCard(cardData) {
+    const card = new Card(cardData, cardSelector)
+    return card.getView()
+  }
+  
+  function renderCard(cardData) {
+    const cardElement = createCard(cardData);
+    cardContainerElement.prepend(cardElement);
+  }
   /*********************************************************************************************/
   /***************************************EVENT HANDLERS****************************************/
   /*********************************************************************************************/
@@ -156,19 +163,22 @@ const options = {
     renderCard( {name , link} , cardsWrap )
     closeModal(profileAddModal);
     addForm.reset();
-    toggleButtonState([titleInputField , linkInputField], createButton, config);
+    toggleButtonState([titleInputField , linkInputField], createButton, options);
   };
   
-  function handlePreviewClick(cardData) {
-    const previewLink = cardData.link;
-    const previewAlt = cardData.name;
-    const previewCaption = cardData.name; 
-    previewModalImage.setAttribute("src", previewLink);
-    previewModalImage.setAttribute("alt", previewAlt);
-    modalPreviewPictureCaption.textContent = cardData.name;
-    openModal(previewModal);
-  }
+  // function handlePreviewClick(cardData) {
+  //   const previewLink = cardData.link;
+  //   const previewAlt = cardData.name;
+  //   const previewCaption = cardData.name; 
+  //   previewModalImage.setAttribute("src", previewLink);
+  //   previewModalImage.setAttribute("alt", previewAlt);
+  //   modalPreviewPictureCaption.textContent = cardData.name;
+  //   openModal(previewModal);
+  // }
   
+
+
+
   // function closeModalByEscape(event) {
   //   if(event.key === 'Escape') {
   //     const openedModal = document.querySelector(".modal_opened");

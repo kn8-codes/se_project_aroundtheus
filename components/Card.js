@@ -20,27 +20,24 @@ export default class Card{
             this._handleLikeIcon();
         })
         
-        this._cardElement.querySelector(".card__delete-button").addEventListener('click',()=>{
+        this._cardElement.querySelector(".card__like-button").addEventListener('click',()=>{
             this._handleDeleteCard();
         })
         
-        this._cardElement.querySelector(".card__image").addEventListener('click',()=>{
+        this._cardElement.querySelector(".card__like-button").addEventListener('click',()=>{
             this._handlePreviewClick();
         })
     }
     _handleLikeIcon(){
-        console.log('like button')
         this._cardElement.querySelector('.card__like-button').classList.toggle('card__like-active')
     }
 
     _handleDeleteCard(){
-       console.log('delete card')
         this._cardElement.remove();
         this._cardElement = null;
     }
 
     _handlePreviewClick(){
-        console.log('preview Clcik')
         const modalPreview = document.querySelector("#preview")
         const modalImage = document.querySelector(".modal__preview-image");
         const imageTitle = document.querySelector(".modal__caption");
@@ -53,11 +50,15 @@ export default class Card{
 
 
     getView(){
+      //const likeButton = this._cardElement.querySelector(".card__like-button");
+      //const deleteButton = this._cardElement.querySelector(".card__like-button");
+      //const cardImage = this._cardElement.querySelector(".card__like-button");
+      //console.log(likeButton, deleteButton, cardImage)
       this._cardElement = this._getTemplate();
       this._setEventListeners();
       this._cardElement.querySelector('.card__image').src = this._link
       this._cardElement.querySelector('.card__label-title').textContent = this._name
       this._cardElement.querySelector('.card__image').alt = this._name
-    return this._cardElement;
+      return this._cardElement;
     }
 }

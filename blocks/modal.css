@@ -115,6 +115,7 @@
   
   .modal__input_type_error{
     margin: 0;
+    border-bottom: 2px solid red
   }
 
   .modal__button {

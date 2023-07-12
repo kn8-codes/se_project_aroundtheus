@@ -77,7 +77,8 @@ const cardSelector = '#card-template'
     closeModal(profileAddModal);
     addForm.reset();
     console.log(this.querySelector('.modal__button'))
-    this.querySelector('.modal__button').classList.toggle('modal__button_disabled')
+    //this.querySelector('.modal__button').classList.toggle('modal__button_disabled')
+    addCardValidator.toggleButtonState();
   };
   
   /*********************************************************************************************/

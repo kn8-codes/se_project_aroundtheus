@@ -7,7 +7,7 @@ import { initialCards, cardData, options } from "../utils/constants.js";
 /***************************************ELEMENTS**********************************************/
 /*********************************************************************************************/
 
-const cardsContainer = document.querySelector(".cards"); 
+//const cardsContainer = document.querySelector(".cards"); 
 const cardsWrap = document.querySelector(".cards__list")
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -20,14 +20,14 @@ const profileTitleInput = document.querySelector("#edit-modal-input-title");
 const profileDescriptionInput = document.querySelector("#edit-modal-input-description");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const cardContainerElement = document.querySelector(".cards__container");
-const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
+//const cardTemplate = document.querySelector("#card-template").content.firstElementChild;
 const addNewCardButton = document.querySelector("#profile-add-button")
 const addForm = document.querySelector("#add-form");
 const titleInputField = document.querySelector("#title");
 const linkInputField = document.querySelector("#link");
-const createButton = document.querySelector("#create-btn");
+//const createButton = document.querySelector("#create-btn");
 const previewModal = document.querySelector("#preview");
-const previewModalImage = previewModal.querySelector(".modal__preview-image");
+//const previewModalImage = previewModal.querySelector(".modal__preview-image");
 const previewModalCloseButton = previewModal.querySelector("#preview-close");
 const overlay = document.querySelector(".page");
 const modalPreviewPictureCaption = previewModal.querySelector(".modal__caption");
@@ -76,7 +76,6 @@ const cardSelector = '#card-template'
     renderCard( {name , link} , cardsWrap )
     closeModal(profileAddModal);
     addForm.reset();
-    console.log(this.querySelector('.modal__button'))
     //this.querySelector('.modal__button').classList.toggle('modal__button_disabled')
     addCardValidator.toggleButtonState();
   };

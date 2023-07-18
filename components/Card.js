@@ -20,11 +20,11 @@ export default class Card{
             this._handleLikeIcon();
         })
         
-        this._cardElement.querySelector(".card__like-button").addEventListener('click',()=>{
+        this._cardElement.querySelector(".card__delete-button").addEventListener('click',()=>{
             this._handleDeleteCard();
         })
         
-        this._cardElement.querySelector(".card__like-button").addEventListener('click',()=>{
+        this._cardElement.querySelector(".card__image").addEventListener('click',()=>{
             this._handlePreviewClick();
         })
     }
@@ -44,16 +44,11 @@ export default class Card{
         modalImage.src = this._link;
         modalImage.alt = "Image of " + this._name;
         imageTitle.textContent = this._name;
-        console.log(modalPreview)
         openModal(modalPreview);
     }
 
 
     getView(){
-      //const likeButton = this._cardElement.querySelector(".card__like-button");
-      //const deleteButton = this._cardElement.querySelector(".card__like-button");
-      //const cardImage = this._cardElement.querySelector(".card__like-button");
-      //console.log(likeButton, deleteButton, cardImage)
       this._cardElement = this._getTemplate();
       this._setEventListeners();
       this._cardElement.querySelector('.card__image').src = this._link

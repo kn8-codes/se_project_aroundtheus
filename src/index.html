@@ -8,7 +8,6 @@
     <meta name="author" content="Nathaniel Kelly" />
     <meta name="description" content="Around the US" />
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="stylesheet" href="./page/index.css" />
     <title>Around the US</title>
 </head>
 <body class="page">
@@ -16,14 +15,14 @@
       <header class="header page__section">
         <img
           class="header__image"
-          src="./images/header__image.svg"
+          src="<%=require('./images/header__image.svg')%>"
           alt="Around the US vector image" />
       </header>
       <main class="content">
         <section class="profile page__section">
           <img
             class="profile__image"
-            src="./images/jacques-cousteau.jpg"
+            src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="avatar" />
           <div class="profile__info">
             <h1 class="profile__title" id="profile-title">Jacques Cousteau</h1>

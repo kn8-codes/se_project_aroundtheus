@@ -1,5 +1,9 @@
 import Card from "../components/Card";
 import FormValidator from "../components/FormValidator.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import UserInfo from "../components/UserInfo.js";
+import Section from "../components/Section.js";
+import PopupWithImage from "../components/PopupWithImage.js";
 import { closeModal, openModal } from "../utils/utils.js";
 import { initialCards, cardData, options } from "../utils/constants.js";
 import '../page/index.css';
@@ -30,15 +34,31 @@ const linkInputField = document.querySelector("#link");
 const previewModal = document.querySelector("#preview");
 //const previewModalImage = previewModal.querySelector(".modal__preview-image");
 const previewModalCloseButton = previewModal.querySelector("#preview-close");
-const overlay = document.querySelector(".page");
-const modalPreviewPictureCaption = previewModal.querySelector(".modal__caption");
-const openedModal = document.querySelector(".modal_opened");
+//const overlay = document.querySelector(".page");
+//const modalPreviewPictureCaption = previewModal.querySelector(".modal__caption");
+//const openedModal = document.querySelector(".modal_opened");
 const cardSelector = '#card-template'
 
   /*********************************************************************************************/
   /***************************************FUNCTIONS*********************************************/
   /*********************************************************************************************/
   
+const newCardPopup = new PopupWithForm('#profile-add-modal',  handleProfileEditSubmit)
+
+const section = new Section(
+  {
+    items: initialCards,
+    renderer: (item) => {
+      const card = renderCard(item);
+      section.addItem(card);
+    },
+  },
+  ".cards__container"
+);
+section.renderItems()
+
+
+
   function createCard(cardData) {
     const card = new Card(cardData, cardSelector)
     return card.getView()

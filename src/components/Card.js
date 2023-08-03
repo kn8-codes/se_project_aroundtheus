@@ -1,10 +1,11 @@
 import { openModal } from "../utils/utils.js";
 
 export default class Card{
-    constructor({name , link}, cardSelector){
+    constructor({name , link}, cardSelector, handleCardClick){
         this._name = name;
         this._link = link;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
         
     }
     _getTemplate() {
@@ -17,6 +18,7 @@ export default class Card{
       
     _setEventListeners(){
         this._cardElement.querySelector(".card__like-button").addEventListener('click',()=>{
+          
             this._handleLikeIcon();
         })
         
@@ -24,9 +26,9 @@ export default class Card{
             this._handleDeleteCard();
         })
         
-        this._cardElement.querySelector(".card__image").addEventListener('click',()=>{
-            this._handlePreviewClick();
-        })
+         this._cardElement.querySelector(".card__image").addEventListener('click',()=>{ 
+            this._handleImageClick();
+         })
     }
     _handleLikeIcon(){
         this._cardElement.querySelector('.card__like-button').classList.toggle('card__like-active')
@@ -37,7 +39,7 @@ export default class Card{
         this._cardElement = null;
     }
 
-    _handlePreviewClick(){
+    _handleImageClick(){
         const modalPreview = document.querySelector("#preview")
         const modalImage = document.querySelector(".modal__preview-image");
         const imageTitle = document.querySelector(".modal__caption");

@@ -7,6 +7,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import { closeModal, openModal } from "../utils/utils.js";
 import { initialCards, cardData, options } from "../utils/constants.js";
 import '../page/index.css';
+import Popup from "../components/Popup";
 
 /*********************************************************************************************/
 /***************************************ELEMENTS**********************************************/
@@ -49,7 +50,7 @@ const section = new Section(
   {
     items: initialCards,
     renderer: (item) => {
-      const card = renderCard(item);
+      const card = createCard(item);
       section.addItem(card);
     },
   },
@@ -57,10 +58,50 @@ const section = new Section(
 );
 section.renderItems()
 
+export const imagePreview = document.querySelector(".modal__preview");
+export const popupImage = imagePreview.querySelector(".modal__preview-image");
+export const popupImageTitle = imagePreview.querySelector(
+  ".modal__caption"
+  );
+  
+  
+  const userInfo = new UserInfo( profileTitle , profileDescription  );
+  
+  const editFormValidator = new FormValidator(options, profileEditForm);
+  editFormValidator.enableValidation();
+  
+  const addCardValidator = new FormValidator(options, addForm)
+  addCardValidator.enableValidation();
+  
+  const imagePreviewPopup = new PopupWithImage(".card__image");
+  imagePreviewPopup.setEventListeners();
+
+  
+  editPopup.setEventListeners();
+  
+  profileEditButton.addEventListener("click", function () {
+    const userData = userInfo.getUserInfo();
+    nameInputValue.value = userData.name;
+    professionInputValue.value = userData.profession;
+    editPopup.open();
+  });
+
+  function handleImageClick({ name, link }) {
+    PopupWithImage.openPopupWindow({ name, link });
+  };
+  
+  addCardButton.addEventListener("click", function () {
+    addFormValidator.disableSubmitButton();
+    addCardPopup.open();
+  });
 
 
+  /*********************************************************************************************/
+  /***************************************EVENT HANDLERS****************************************/
+  /*********************************************************************************************/
+  
   function createCard(cardData) {
-    const card = new Card(cardData, cardSelector)
+    const card = new Card(cardData, cardSelector, handlePreviewClick)
     return card.getView()
   }
   
@@ -68,16 +109,14 @@ section.renderItems()
     const cardElement = createCard(cardData);
     cardContainerElement.prepend(cardElement);
   }
-
-  /*********************************************************************************************/
-  /***************************************EVENT HANDLERS****************************************/
-  /*********************************************************************************************/
   
   function handleProfileEditSubmit(e){
     e.preventDefault();
-    profileTitle.textContent = profileTitleInput.value;
-    profileDescription.textContent = profileDescriptionInput.value;
+    // profileTitle.textContent = profileTitleInput.value;
+    // profileDescription.textContent = profileDescriptionInput.value;
+    userInfo.setUserInfo(profileTitleInput.value , profileDescriptionInput.value)
     closeModal(profileEditModal);
+  
   } 
   
   function fillProfileForm(){
@@ -100,6 +139,18 @@ section.renderItems()
     //this.querySelector('.modal__button').classList.toggle('modal__button_disabled')
     addCardValidator.toggleButtonState();
   };
+
+  function handlePreviewClick(cardData){
+    console.log(cardData)
+    // const modalPreview = document.querySelector("#preview")
+    // const modalImage = document.querySelector(".modal__preview-image");
+    // const imageTitle = document.querySelector(".modal__caption");
+    // modalImage.src = this._link;
+    // modalImage.alt = "Image of " + this._name;
+    // imageTitle.textContent = this._name;
+    // openModal(modalPreview);
+  PopupWithImage.openPopupWindow(cardData);
+}
   
   /*********************************************************************************************/
   /***********************************EVENT LISTENERS*******************************************/
@@ -115,8 +166,3 @@ section.renderItems()
   
   initialCards.forEach((cardData) => renderCard(cardData , cardsWrap));
 
-
-const editFormValidator = new FormValidator(options, profileEditForm);
-const addCardValidator = new FormValidator(options, addForm)
-editFormValidator.enableValidation();
-addCardValidator.enableValidation();

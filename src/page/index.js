@@ -149,7 +149,7 @@ export const popupImageTitle = imagePreview.querySelector(
     // modalImage.alt = "Image of " + this._name;
     // imageTitle.textContent = this._name;
     // openModal(modalPreview);
-  PopupWithImage.openPopupWindow(cardData);
+  popupWithImage.openPopupWindow(cardData);
 }
   
   /*********************************************************************************************/

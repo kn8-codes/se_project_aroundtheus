@@ -65,7 +65,7 @@ export const popupImageTitle = imagePreview.querySelector(
   );
   
   
-  const userInfo = new UserInfo( profileTitle , profileDescription  );
+  const userInfo = new UserInfo(profileTitle , profileDescription);
   
   const editFormValidator = new FormValidator(options, profileEditForm);
   editFormValidator.enableValidation();
@@ -92,7 +92,7 @@ export const popupImageTitle = imagePreview.querySelector(
   };
   
   addCardButton.addEventListener("click", function () {
-    //addCardValidator.disableSubmitButton();
+    addCardValidator.toggleButtonState();
     addCardPopup.open();
   });
 
@@ -102,7 +102,7 @@ export const popupImageTitle = imagePreview.querySelector(
   /*********************************************************************************************/
   
   function createCard(cardData) {
-    const card = new Card(cardData, cardSelector, handlePreviewClick)
+    const card = new Card(cardData, cardSelector, handleImageClick)
     return card.getView()
   }
   
@@ -150,7 +150,7 @@ export const popupImageTitle = imagePreview.querySelector(
     // modalImage.alt = "Image of " + this._name;
     // imageTitle.textContent = this._name;
     // openModal(modalPreview);
-  popupWithImage.openPopupWindow(cardData);
+  popupWithImage.open(cardData);
 }
   
   /*********************************************************************************************/

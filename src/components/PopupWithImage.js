@@ -2,7 +2,7 @@ import Popup from "./Popup.js";
 
 class PopupWithImage extends Popup {
   constructor(popupSelector) {
-    super(popupSelector);
+    super({popupSelector});
     const previewImageElement = document.querySelector(".modal__preview-image");
     const previewImageCaption = document.querySelector(
       ".modal__preview-caption"
@@ -17,7 +17,7 @@ class PopupWithImage extends Popup {
     this.previewImageCaption.textContent = this.name;
   }
 
-  openPopupWindow(data) {
+  open(data) {
     this.name = data.name;
     this.link = data.link;
     this._addImagePreview();

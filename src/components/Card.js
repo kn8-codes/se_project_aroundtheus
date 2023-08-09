@@ -27,7 +27,8 @@ export default class Card{
         })
         
          this._cardElement.querySelector(".card__image").addEventListener('click',()=>{ 
-            this._handleImageClick();
+            // use the function passed from index.js instead
+            this._handleImageClick(); // pass it an argument
          })
     }
     _handleLikeIcon(){
@@ -39,6 +40,7 @@ export default class Card{
         this._cardElement = null;
     }
 
+    // remove
     _handleImageClick(){
         const modalPreview = document.querySelector("#preview")
         const modalImage = document.querySelector(".modal__preview-image");

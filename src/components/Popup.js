@@ -3,12 +3,12 @@ export default class Popup {
        this._popupElement = document.querySelector(popupSelector); 
     }
     open(){
-        this._popup.classList.add("modal-opened");
+        this._popupElement.classList.add("modal-opened");
         document.addEventListener("keydown", this._handleEscClose);
     }
 
     close(){
-        this._popup.classList.remove("");
+        this._popupElement.classList.remove("");
         document.removeEventListener("keydown", this._pressEsc);
     }
 
@@ -19,14 +19,15 @@ export default class Popup {
     }
 
     setEventListeners(){
-        this._popup.addEventListener("mousedown", (event) => {
-            if (event.target.classList.contains("modal_opened")) {
+        this._popupElement.addEventListener("mousedown", (event) => {
+            if (event.target.classList.contains("modal_opened") || document.querySelector("#preview-close")) {
               this.close();
             }
           });
       
-        this._popup
-            .querySelector(".modal_opened")
-            .addEventListener("click", () => this.closePopupWindow());
+    //       // try the class for the close button instead
+    //     this._popupElement
+    //         .querySelector("#preview-close")
+    //         .addEventListener("click", () => this.close()); // use .close
     }
 };

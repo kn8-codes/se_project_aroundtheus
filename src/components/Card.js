@@ -1,11 +1,9 @@
-import { openModal } from "../utils/utils.js";
-
 export default class Card{
-    constructor({name , link}, cardSelector, handleCardClick){
+    constructor({name , link}, cardSelector, handleImageClick){
         this._name = name;
         this._link = link;
         this._cardSelector = cardSelector;
-        this._handleCardClick = handleCardClick;
+        this._handleImageClick = handleImageClick;
         
     }
     _getTemplate() {
@@ -18,7 +16,6 @@ export default class Card{
       
     _setEventListeners(){
         this._cardElement.querySelector(".card__like-button").addEventListener('click',()=>{
-          
             this._handleLikeIcon();
         })
         
@@ -26,10 +23,10 @@ export default class Card{
             this._handleDeleteCard();
         })
         
-         this._cardElement.querySelector(".card__image").addEventListener('click',()=>{ 
-            // use the function passed from index.js instead
-            this._handleImageClick(); // pass it an argument
-         })
+         this._cardElement.querySelector(".card__image").addEventListener('click', () =>{
+            this._handleImageClick({name:this._name,link:this._link});
+        });
+         
     }
     _handleLikeIcon(){
         this._cardElement.querySelector('.card__like-button').classList.toggle('card__like-active')
@@ -40,16 +37,16 @@ export default class Card{
         this._cardElement = null;
     }
 
-    // remove
-    _handleImageClick(){
-        const modalPreview = document.querySelector("#preview")
-        const modalImage = document.querySelector(".modal__preview-image");
-        const imageTitle = document.querySelector(".modal__caption");
-        modalImage.src = this._link;
-        modalImage.alt = "Image of " + this._name;
-        imageTitle.textContent = this._name;
-        openModal(modalPreview);
-    }
+    
+    // _handleImageClick(){
+    //     const modalPreview = document.querySelector("#preview")
+    //     const modalImage = document.querySelector(".modal__preview-image");
+    //     const imageTitle = document.querySelector(".modal__caption");
+    //     modalImage.src = this._link;
+    //     modalImage.alt = "Image of " + this._name;
+    //     imageTitle.textContent = this._name;
+    //     openModal(modalPreview);
+    // }
 
 
     getView(){

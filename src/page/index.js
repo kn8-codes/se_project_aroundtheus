@@ -98,7 +98,8 @@ function renderCard(cardData) {
 }
 
 function handleProfileEditSubmit(e){
-  e.preventDefault();
+//   console.log(e);
+//   e.preventDefault();
   userInfo.setUserInfo(profileTitleInput.value , profileDescriptionInput.value)
   editProfilePopup.close();
 

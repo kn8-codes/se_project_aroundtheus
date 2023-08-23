@@ -98,7 +98,7 @@ function renderCard(cardData) {
 }
 
 function handleProfileEditSubmit(data) {
-  console.trace(data)
+  console.log(data)
   userInfo.setUserInfo(data.name, data.profession)
   editProfilePopup.close();
 

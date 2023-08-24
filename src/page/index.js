@@ -121,6 +121,7 @@ function handleAddCard(e) {
   renderCard({ name, link }, cardsWrap)
   addForm.reset();
   addCardValidator.toggleButtonState();
+  addCardPopup.close();
 };
 
 

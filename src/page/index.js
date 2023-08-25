@@ -39,7 +39,7 @@ const previewModalCloseButton = previewModal.querySelector("#preview-close");
 //const openedModal = document.querySelector(".modal_opened");
 const cardSelector = '#card-template'
 
-const addCardPopup = new PopupWithForm('#profile-add-modal', handleProfileEditSubmit);
+const addCardPopup = new PopupWithForm('#profile-add-modal', handleAddCardSubmit );
 addCardPopup.setEventListeners();
 
 const editProfilePopup = new PopupWithForm('#profile-edit-modal', handleProfileEditSubmit);
@@ -92,15 +92,22 @@ function createCard(cardData) {
   return card.getView()
 }
 
-function renderCard(cardData) {
-  const cardElement = createCard(cardData);
-  cardContainerElement.prepend(cardElement);
-}
+// function renderCard(cardData) {
+//   const cardElement = createCard(cardData);
+//   cardContainerElement.prepend(cardElement);
+// }
 
 function handleProfileEditSubmit(data) {
-  console.log(data)
   userInfo.setUserInfo(data.name, data.profession)
   editProfilePopup.close();
+
+}
+
+function handleAddCardSubmit(data){
+  const cardElement = createCard(data);
+  section.addItem(cardElement);
+  addCardPopup.close();
+
 
 }
 
@@ -116,6 +123,7 @@ function openProfileForm() {
 
 function handleAddCard(e) {
   e.preventDefault();
+  console.log(e)
   const name = titleInputField.value;
   const link = linkInputField.value;
   renderCard({ name, link }, cardsWrap)
@@ -133,9 +141,9 @@ profileCloseAddModal.addEventListener('click', () => editProfilePopup.close());
 //   handleProfileEditSubmit({ name: profileTitleInput.value, profession: profileDescriptionInput.value });
 // });
 addCardButton.addEventListener('click', () => addCardPopup.open());
-addForm.addEventListener("submit", handleAddCard);
+// addForm.addEventListener("submit", handleAddCard);
 previewModalCloseButton.addEventListener('click', () => imagePreviewPopup.close());
 previewModal.addEventListener('click', () => imagePreviewPopup.open());
 
-initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
+// initialCards.forEach((cardData) => renderCard(cardData, cardsWrap));
 

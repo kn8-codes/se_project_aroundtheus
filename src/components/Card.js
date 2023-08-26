@@ -37,18 +37,6 @@ export default class Card{
         this._cardElement = null;
     }
 
-    
-    // _handleImageClick(){
-    //     const modalPreview = document.querySelector("#preview")
-    //     const modalImage = document.querySelector(".modal__preview-image");
-    //     const imageTitle = document.querySelector(".modal__caption");
-    //     modalImage.src = this._link;
-    //     modalImage.alt = "Image of " + this._name;
-    //     imageTitle.textContent = this._name;
-    //     openModal(modalPreview);
-    // }
-
-
     getView(){
       this._cardElement = this._getTemplate();
       this._setEventListeners();

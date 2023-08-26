@@ -1,4 +1,4 @@
-# Project 7: Around The U.S.
+# Project 8: Around The U.S.
 
 ### Overview  
 
@@ -24,7 +24,7 @@
 
 **Intro**
   
-This project is a work in progress to display the skills I have acquired  
+This project is a work in progress to display the skills I have acquired. 
   
 **Figma**  
   

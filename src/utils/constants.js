@@ -45,4 +45,4 @@ export const options = {
   errorClass: "modal__error_visable",
 };
 
-
+export const cardSelector = '#card-template'

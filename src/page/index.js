@@ -69,6 +69,7 @@ function handleProfileEditSubmit(data) {
 function handleAddCardSubmit(data){
   const cardElement = createCard(data);
   section.addItem(cardElement);
+  addCardValidator.resetValidation();
   addCardPopup.close();
 }
 

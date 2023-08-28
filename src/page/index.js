@@ -75,6 +75,7 @@ function handleAddCardSubmit(data){
 
 function openProfileForm() {
   userInfo.getUserInfo();
+  userInfo.setUserInfo();
   editProfilePopup.open();
 };
 

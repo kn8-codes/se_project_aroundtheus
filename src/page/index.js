@@ -15,6 +15,10 @@ const profileEditModal = document.querySelector("#profile-edit-modal");
 const profileTitle = document.querySelector("#profile-title");
 const profileDescription = document.querySelector("#profile-description");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
+const profileTitleInput = document.querySelector("#edit-modal-input-title");
+const profileDescriptionInput = document.querySelector(
+  "#edit-modal-input-description"
+);
 const addCardButton = document.querySelector("#profile-add-button")
 const addForm = document.querySelector("#add-form");
 const previewModal = document.querySelector("#preview");
@@ -74,13 +78,15 @@ function handleAddCardSubmit(data){
   addCardPopup.close();
 }
 
-function openProfileForm(data) {
-  userInfo.getUserInfo();
-  userInfo.setUserInfo(data.name , data.profession);
+function openProfileForm(e) {
+  const { profession, name } = userInfo.getUserInfo();
+  profileTitleInput.value = name;
+  profileDescriptionInput.value = profession;
+  console.log(profileTitle, profileDescription )
   editProfilePopup.open();
 };
 
-profileEditButton.addEventListener('click', openProfileForm);
+profileEditButton.addEventListener('click', (e) => openProfileForm(e));
 addCardButton.addEventListener('click', () => addCardPopup.open());
 previewModal.addEventListener('click', () => imagePreviewPopup.open());
 

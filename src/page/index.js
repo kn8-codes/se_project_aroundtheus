@@ -7,6 +7,7 @@ import PopupWithImage from "../components/PopupWithImage.js";
 import { initialCards, cardData, options , cardSelector } from "../utils/constants.js";
 import '../page/index.css';
 import Popup from "../components/Popup";
+import { data } from "autoprefixer";
 
 
 const profileEditButton = document.querySelector("#profile-edit-button");
@@ -73,9 +74,9 @@ function handleAddCardSubmit(data){
   addCardPopup.close();
 }
 
-function openProfileForm() {
+function openProfileForm(data) {
   userInfo.getUserInfo();
-  userInfo.setUserInfo();
+  userInfo.setUserInfo(data.name , data.profession);
   editProfilePopup.open();
 };
 

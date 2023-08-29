@@ -5,7 +5,7 @@ import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
 import { initialCards, cardData, options , cardSelector } from "../utils/constants.js";
-import '../page/index.css';
+import '../pages/index.css';
 import Popup from "../components/Popup";
 import { data } from "autoprefixer";
 
@@ -74,7 +74,6 @@ function handleProfileEditSubmit(data) {
 function handleAddCardSubmit(data){
   const cardElement = createCard(data);
   section.addItem(cardElement);
-  addCardValidator.resetValidation();
   addCardPopup.close();
 }
 
@@ -87,7 +86,10 @@ function openProfileForm(e) {
 };
 
 profileEditButton.addEventListener('click', (e) => openProfileForm(e));
-addCardButton.addEventListener('click', () => addCardPopup.open());
+addCardButton.addEventListener('click', () => {
+  addCardPopup.open();
+  addCardValidator.resetValidation();
+});
 previewModal.addEventListener('click', () => imagePreviewPopup.open());
 
 

@@ -15,6 +15,35 @@
     border-radius: 50%;
   }
   
+  .profile__avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-right: 45px;
+  }
+  
+  .profile__avatar-edit {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    background-image: url("../images/edit-b.svg");
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border: none;
+    border-radius: 50%;
+    opacity: 0;
+    transition: ease-in-out 0.3s;
+  }
+  
+  .profile__avatar:hover {
+    opacity: .5;
+    cursor: pointer;
+  }
+  
+
   .profile__info {
     margin-left: 19px;
     display: grid;

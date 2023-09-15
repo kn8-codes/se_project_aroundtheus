@@ -17,11 +17,17 @@
           class="header__image"
           src="<%=require('./images/header__image.svg')%>"
           alt="Around the US vector image" />
+          <button
+          class="profile__avatar-edit"
+          title="Edit avatar"
+          type="button"
+          id="profile__avatar-edit"
+        ></button>
       </header>
       <main class="content">
         <section class="profile page__section">
           <img
-            class="profile__image"
+            class="profile__avatar"
             src="<%=require('./images/jacques-cousteau.jpg')%>"
             alt="avatar" />
           <div class="profile__info">
@@ -35,6 +41,21 @@
         <section class="cards page__section">
           <ul class="cards__container"></ul>
         </section>
+       <!-- confirmation modal -->
+        <div class="modal" id="delete-modal">
+          <div class="modal__container">
+            <button class="modal__close-button" title="Close popup"></button>
+            <h2 class="modal__title">Are you sure?</h2>
+            <button
+              type="submit"
+              class="modal__submit-button_delete modal__submit-button"
+            >
+              Yes
+            </button>
+          </div>
+        </div>  
+
+
       <!--preview modal-->
       <div class="modal" id="preview">
         <div class="modal__preview">
@@ -143,6 +164,27 @@
             <p class="modal__caption"></p>
           </div>
         </div>
+
+
+      <!-- avatar modal -->  
+      <div class="modal" id="avatar-modal">
+        <div class="modal__container">
+          <button class="modal__close-button" title="Close popup"></button>
+          <h2 class="modal__title">Change profile picture</h2>
+          <form class="modal__form_avatar modal__form" novalidate>
+            <input
+              type="url"
+              name="link"
+              placeholder="Image link"
+              class="modal__avatar-link modal__input"
+              id="avatar-link"
+              required
+            />
+            <span class="modal__error" id="avatar-link-error"></span>
+            <button type="submit" class="modal__submit-button">Save</button>
+          </form>
+        </div>
+      </div>
 
     <template id="card-template">
       <li class="card">

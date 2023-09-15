@@ -8,7 +8,7 @@ import { initialCards, cardData, options , cardSelector } from "../utils/constan
 import '../pages/index.css';
 import Popup from "../components/Popup";
 import { data } from "autoprefixer";
-
+import Api from "../components/Api.js"
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -40,6 +40,20 @@ const section = new Section(
   ".cards__container"
 );
 section.renderItems()
+
+const api = new Api({
+  url: "https://around-api.en.tripleten-services.com/v1/",
+  headers: {
+    authorization: "0d8f734d-caf1-45e3-b9d3-764b4099955a",
+    "Content-Type": "application/json"
+  }
+}); 
+
+api.getUserInfo().then((results) => {
+  const info = results
+  console.log(info.name)
+});
+
 
 export const imagePreview = document.querySelector(".modal__preview");
 export const popupImage = imagePreview.querySelector(".modal__preview-image");

@@ -41,6 +41,7 @@
   .profile__avatar:hover {
     opacity: .5;
     cursor: pointer;
+    transition: all 0.3s ease-in-out;
   }
   
 

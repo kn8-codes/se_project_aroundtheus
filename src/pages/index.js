@@ -29,18 +29,6 @@ addCardPopup.setEventListeners();
 const editProfilePopup = new PopupWithForm('#profile-edit-modal', handleProfileEditSubmit);
 editProfilePopup.setEventListeners();
 
-const section = new Section(
-  {
-    items: initialCards,
-    renderer: (item) => {
-      const card = createCard(item);
-      section.addItem(card);
-    },
-  },
-  ".cards__container"
-);
-section.renderItems()
-
 const api = new Api({
   url: "https://around-api.en.tripleten-services.com/v1/",
   headers: {
@@ -49,10 +37,41 @@ const api = new Api({
   }
 }); 
 
+const renderCard = (data) => {
+  const card = createCard(data);
+  cardSection.addItem(card);
+};
+
+let cardSection;
+
+Promise.all([api.getUserInfo(), api.getInitialCards()])
+  .then(([userData, cards]) => {
+    userInfo.setUserInfo(userData);
+    cardSection = new Section(
+      {
+        items: cards,
+        renderer: renderCard,
+      },
+      options.cardList
+    );
+    cardSection.renderItems();
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+
 api.getUserInfo().then((results) => {
-  const info = results
-  console.log(info.name)
+  const info = results;
+  profileTitle.textContent = info.name;
+  profileDescription.textContent = info.about; 
 });
+
+api.updateProfile().then((results) => {
+  const info = results;
+  profileTitle.textContent = info.name;
+  profileDescription.textContent = info.about; 
+});
+
 
 
 export const imagePreview = document.querySelector(".modal__preview");

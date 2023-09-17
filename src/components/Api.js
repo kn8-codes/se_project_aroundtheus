@@ -12,7 +12,7 @@ export default class Api {
           headers: this._headers,
         }).then(this._getResponse);
       }
-      
+
     getInitialCards() {
         return fetch( this._url + "cards", {
           headers: {
@@ -39,5 +39,6 @@ export default class Api {
         }).then(this._getResponse);
       }
     // other methods for working with the API
-  }
+  };
+  
   

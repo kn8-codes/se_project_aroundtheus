@@ -16,3 +16,5 @@ export default class UserInfo {
       this.profession.textContent = profession;
     };
   };
+
+    

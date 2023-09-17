@@ -20,8 +20,7 @@ export default class Api {
           }
         })
           .then(res => {
-            if (res.ok) {
-              console.log(res)  
+            if (res.ok) {  
               return res.json();
             }
             // if the server returns an error, reject the promise
@@ -34,7 +33,18 @@ export default class Api {
           headers: this._headers,
           body: JSON.stringify({
             name: data.name,
-            about: data.about,
+            profession: data.profession,
+          }),
+        }).then(this._getResponse);
+      }
+
+      uploadCard({ name, link }) {
+        return fetch(this._url + "/cards", {
+          method: "POST",
+          headers: this._headers,
+          body: JSON.stringify({
+            name,
+            link,
           }),
         }).then(this._getResponse);
       }

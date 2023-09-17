@@ -60,17 +60,8 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     console.log(err);
   });
 
-api.getUserInfo().then((results) => {
-  const info = results;
-  profileTitle.textContent = info.name;
-  profileDescription.textContent = info.about; 
-});
 
-api.updateProfile().then((results) => {
-  const info = results;
-  profileTitle.textContent = info.name;
-  profileDescription.textContent = info.about; 
-});
+
 
 
 
@@ -95,13 +86,13 @@ function handleImageClick(data) {
 
 
 function createCard(cardData) {
-  const card = new Card(cardData, cardSelector, handleImageClick)
-  return card.getView()
+  const card = new Card(cardData, cardSelector, handleImageClick);
+  return card.getView();
 }
 
 function handleProfileEditSubmit(data) {
-  userInfo.setUserInfo(data.name, data.profession)
-  editProfilePopup.close()
+  api.updateProfile(data.name, data.profession);
+  editProfilePopup.close();
 }  
 
 function handleAddCardSubmit(data){
@@ -114,7 +105,6 @@ function openProfileForm(e) {
   const { profession, name } = userInfo.getUserInfo();
   profileTitleInput.value = name;
   profileDescriptionInput.value = profession;
-  console.log(profileTitle, profileDescription )
   editProfilePopup.open();
 };
 

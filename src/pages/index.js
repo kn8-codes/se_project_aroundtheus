@@ -9,6 +9,7 @@ import '../pages/index.css';
 import Popup from "../components/Popup";
 import { data } from "autoprefixer";
 import Api from "../components/Api.js"
+import PopupWithConfirmation from "../components/PopupWithConfirmation";
 
 const profileEditButton = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
@@ -84,14 +85,63 @@ function handleImageClick(data) {
   imagePreviewPopup.open(data);
 };
 
-
-function createCard(cardData) {
-  const card = new Card(cardData, cardSelector, handleImageClick);
-  return card.getView();
+function createCard(data) {
+  const cardElement = new Card(
+    {
+      data,
+      handleImageClick: (imgData) => {
+        cardPreviewPopup.open(imgData);
+      },
+      handleDeleteClick: () => {
+        confirmationPopup.openPopup(() => {
+          confirmationPopup.renderLoading(true);
+          api
+            .deleteCard(data._id)
+            .then(() => {
+              cardElement.removeCard();
+              confirmationPopup.closePopup();
+            })
+            .catch((err) => console.log(`An error occured: ${err}`))
+            .finally(() => confirmationPopup.renderLoading(false));
+        });
+      },
+      handleLikeClick: () => {
+        if (cardElement.isLiked()) {
+          api
+            .removeLike(cardElement._cardId)
+            .then((res) => {
+              cardElement.setLikes(res.likes);
+            })
+            .catch((err) => {
+              console.log(`An error occured: ${err}`);
+            });
+        } else {
+          api
+            .addLike(cardElement._cardId)
+            .then((res) => {
+              cardElement.setLikes(res.likes);
+            })
+            .catch((err) => {
+              console.log(`An error occured: ${err}`);
+            });
+        }
+      },
+      userId: userInfo.getId(),
+    },
+    options.cardTemplate
+  );
+  return cardElement.getView();
 }
 
+
 function handleProfileEditSubmit(data) {
-  api.updateProfile(data.name, data.profession);
+  api.updateProfile(data.name, data.profession)
+  .then(() => {
+    userInfo.setUserInfo(data.name, data.profession);
+  })
+  .catch((err) => {
+    console.log(`An error occured: ${err}`);
+  });
   editProfilePopup.close();
 }  
 

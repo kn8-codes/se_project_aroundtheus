@@ -27,13 +27,13 @@ export default class Api {
             return Promise.reject(`Error: ${res.status}`);
           });
       }
-      updateProfile(data) {
+      updateProfile(name, profession) {
         return fetch(this._url + "/users/me", {
           method: "PATCH",
           headers: this._headers,
           body: JSON.stringify({
-            name: data.name,
-            profession: data.profession,
+            name: name,
+            about: profession,
           }),
         }).then(this._getResponse);
       }

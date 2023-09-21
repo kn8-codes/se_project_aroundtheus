@@ -12,9 +12,13 @@ export default class UserInfo {
     };
   
     setUserInfo({name, profession}) {
-      this.name.textContent = name;
-      this.profession.textContent = profession;
+        this.name.textContent = name;
+        this.profession.textContent = profession;
     };
+
+    getId() {
+      return this._userId;
+    }
   };
 
     

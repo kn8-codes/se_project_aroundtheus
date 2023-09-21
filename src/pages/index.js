@@ -136,7 +136,7 @@ function createCard(data) {
 
 function handleProfileEditSubmit(data) {
   api.updateProfile(data.name, data.profession)
-  .then(() => {
+  .then((data) => {
     userInfo.setUserInfo(data.name, data.profession);
   })
   .catch((err) => {

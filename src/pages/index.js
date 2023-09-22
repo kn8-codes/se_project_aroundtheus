@@ -90,7 +90,7 @@ function createCard(data) {
     {
       data,
       handleImageClick: (imgData) => {
-        cardPreviewPopup.open(imgData);
+        imagePreviewPopup.open(imgData);
       },
       handleDeleteClick: () => {
         confirmationPopup.openPopup(() => {
@@ -137,7 +137,7 @@ function createCard(data) {
 function handleProfileEditSubmit(data) {
   api.updateProfile(data.name, data.profession)
   .then((data) => {
-    userInfo.setUserInfo(data.name, data.profession);
+    userInfo.setUserInfo(data)
   })
   .catch((err) => {
     console.log(`An error occured: ${err}`);
@@ -146,9 +146,16 @@ function handleProfileEditSubmit(data) {
 }  
 
 function handleAddCardSubmit(data){
-  const cardElement = createCard(data);
-  section.addItem(cardElement);
-  addCardPopup.close();
+  api.uploadCard(data)
+    .then((res) => {
+      console.log(res);
+      createCard(res);
+      cardSection.renderItems();
+      addCardPopup.close();
+    })
+  .catch((err) => {
+    console.log(`An error occured: ${err}`);
+  });;
 }
 
 function openProfileForm(e) {

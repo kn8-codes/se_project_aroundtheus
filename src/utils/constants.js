@@ -44,7 +44,7 @@ export const options = {
   inputErrorClass: "modal__input_type_error",  
   errorClass: "modal__error_visable",
 
-  cardList: ".gallery__grid",
+  cardList: ".cards__container",
   cardTemplate: "#card-template",
   // Popups
   previewPopup: "image-modal",

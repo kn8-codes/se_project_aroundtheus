@@ -10,10 +10,10 @@ export default class UserInfo {
         name: this.name.textContent,
       };
     };
-  
-    setUserInfo({name, profession}) {
+
+    setUserInfo({name, about}) {
         this.name.textContent = name;
-        this.profession.textContent = profession;
+        this.profession.textContent = about;
     };
 
     getId() {

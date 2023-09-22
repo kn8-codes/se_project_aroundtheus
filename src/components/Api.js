@@ -38,7 +38,8 @@ export default class Api {
         }).then(this._getResponse);
       }
 
-      uploadCard({ name, link }) {
+      uploadCard({name, link}) {
+   
         return fetch(this._url + "/cards", {
           method: "POST",
           headers: this._headers,

@@ -90,6 +90,8 @@ function handleImageClick(data) {
   imagePreviewPopup.open(data);
 };
 
+
+
 function createCard(data) {
   const cardElement = new Card(
     {
@@ -99,12 +101,13 @@ function createCard(data) {
       },
       handleDeleteClick: () => {
         confirmationPopup.openPopup(() => {
-          confirmationPopup.renderLoading(true);
+          console.log(here)
+          //confirmationPopup.renderLoading(true);
           api
             .deleteCard(data._id)
             .then(() => {
               cardElement.removeCard();
-              confirmationPopup.closePopup();
+              //confirmationPopup.closePopup();
             })
             .catch((err) => console.log(`An error occured: ${err}`))
             .finally(() => confirmationPopup.renderLoading(false));

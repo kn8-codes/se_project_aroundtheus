@@ -17,9 +17,8 @@ const profileTitle = document.querySelector("#profile-title");
 const profileDescription = document.querySelector("#profile-description");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileTitleInput = document.querySelector("#edit-modal-input-title");
-const profileDescriptionInput = document.querySelector(
-  "#edit-modal-input-description"
-);
+const profileDescriptionInput = document.querySelector("#edit-modal-input-description");
+const profileAvatar = document.querySelector("#profile-avatar");
 const addCardButton = document.querySelector("#profile-add-button")
 const addForm = document.querySelector("#add-form");
 const previewModal = document.querySelector("#preview");
@@ -38,12 +37,12 @@ const api = new Api({
   }
 }); 
 
+let cardSection;
+
 const renderCard = (data) => {
   const card = createCard(data);
   cardSection.addItem(card);
 };
-
-let cardSection;
 
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, cards]) => {
@@ -70,7 +69,11 @@ export const imagePreview = document.querySelector(".modal__preview");
 export const popupImage = imagePreview.querySelector(".modal__preview-image");
 export const popupImageTitle = imagePreview.querySelector(".modal__caption");
 
-const userInfo = new UserInfo(profileTitle, profileDescription);
+const userInfo = new UserInfo(
+  profileTitle, 
+  profileDescription,
+  profileAvatar
+  );
 
 const editFormValidator = new FormValidator(options, profileEditForm);
 editFormValidator.enableValidation();
@@ -78,8 +81,10 @@ editFormValidator.enableValidation();
 const addCardValidator = new FormValidator(options, addForm)
 addCardValidator.enableValidation();
 
-const imagePreviewPopup = new PopupWithImage("#preview_modal");
+const imagePreviewPopup = new PopupWithImage("#preview");
 imagePreviewPopup.setEventListeners();
+
+//const confirmationPopup = new PopupWithConfirmation(options.deletePopup);
 
 function handleImageClick(data) {
   imagePreviewPopup.open(data);
@@ -150,6 +155,7 @@ function handleAddCardSubmit(data){
     .then((res) => {
       console.log(res);
       createCard(res);
+      cardSection.addItem(res);
       cardSection.renderItems();
       addCardPopup.close();
     })

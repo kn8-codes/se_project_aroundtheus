@@ -47,9 +47,9 @@ export const options = {
   cardList: ".cards__container",
   cardTemplate: "#card-template",
   // Popups
-  previewPopup: "image-modal",
-  editPopup: "edit-modal",
-  addPopup: "add-modal",
+  previewPopup: "preview-modal",
+  editPopup: "profile-edit-modal",
+  addPopup: "profile-add-modal",
   avatarPopup: "avatar-modal",
   deletePopup: "delete-modal",
   // Forms

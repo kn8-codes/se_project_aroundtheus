@@ -155,7 +155,7 @@ function handleProfileEditSubmit(data) {
 }  
 
 function handleAvatarChange(data) {
-  api.updateAvatar(data.link)
+  api.updateAvatar(data)
   .then((data) => {
     console.log("here")
   })

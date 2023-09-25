@@ -84,7 +84,8 @@ addCardValidator.enableValidation();
 const imagePreviewPopup = new PopupWithImage("#preview");
 imagePreviewPopup.setEventListeners();
 
-//const confirmationPopup = new PopupWithConfirmation(options.deletePopup);
+const confirmationPopup = new PopupWithConfirmation({popupSelector: options.deletePopup});
+const avatarPopup = new PopupWithConfirmation({popupSelector: options.avatarPopup});
 
 function handleImageClick(data) {
   imagePreviewPopup.open(data);
@@ -100,14 +101,13 @@ function createCard(data) {
         imagePreviewPopup.open(imgData);
       },
       handleDeleteClick: () => {
-        confirmationPopup.openPopup(() => {
-          console.log(here)
-          //confirmationPopup.renderLoading(true);
-          api
-            .deleteCard(data._id)
+        confirmationPopup.open(() => {
+          console.log("here");
+          confirmationPopup.renderLoading(true);
+          api.deleteCard(data._id)
             .then(() => {
               cardElement.removeCard();
-              //confirmationPopup.closePopup();
+              confirmationPopup.closePopup();
             })
             .catch((err) => console.log(`An error occured: ${err}`))
             .finally(() => confirmationPopup.renderLoading(false));
@@ -152,6 +152,16 @@ function handleProfileEditSubmit(data) {
   });
   editProfilePopup.close();
 }  
+function handleAvatarChange(data) {
+  api.updateAvatar(data.link)
+  .then((data) => {
+    userInfo.setUserInfo(data)
+  })
+  .catch((err) => {
+    console.log(`An error occured: ${err}`);
+  });
+  editProfilePopup.close();
+}  
 
 function handleAddCardSubmit(data){
   api.uploadCard(data)
@@ -180,6 +190,7 @@ addCardButton.addEventListener('click', () => {
   addCardValidator.resetValidation();
 });
 previewModal.addEventListener('click', () => imagePreviewPopup.open());
+profileAvatar.addEventListener('click', () => avatarPopup.open());
 
 
 

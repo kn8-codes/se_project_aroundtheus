@@ -22,6 +22,8 @@ const profileAvatar = document.querySelector("#profile-avatar");
 const addCardButton = document.querySelector("#profile-add-button")
 const addForm = document.querySelector("#add-form");
 const previewModal = document.querySelector("#preview");
+const deleteConfirmationButton = document.querySelector("#delete-confirm");
+const avatarChangeButton = document.querySelector("#avatar-save");
 
 const addCardPopup = new PopupWithForm('#profile-add-modal', handleAddCardSubmit );
 addCardPopup.setEventListeners();
@@ -102,7 +104,6 @@ function createCard(data) {
       },
       handleDeleteClick: () => {
         confirmationPopup.open(() => {
-          console.log("here");
           confirmationPopup.renderLoading(true);
           api.deleteCard(data._id)
             .then(() => {
@@ -152,10 +153,11 @@ function handleProfileEditSubmit(data) {
   });
   editProfilePopup.close();
 }  
+
 function handleAvatarChange(data) {
   api.updateAvatar(data.link)
   .then((data) => {
-    userInfo.setUserInfo(data)
+    console.log("here")
   })
   .catch((err) => {
     console.log(`An error occured: ${err}`);
@@ -177,6 +179,11 @@ function handleAddCardSubmit(data){
   });;
 }
 
+function handleConfirmDelete(data) {
+  api.deleteCard(data);
+  confirmationPopup.close();
+};
+
 function openProfileForm(e) {
   const { profession, name } = userInfo.getUserInfo();
   profileTitleInput.value = name;
@@ -192,5 +199,6 @@ addCardButton.addEventListener('click', () => {
 previewModal.addEventListener('click', () => imagePreviewPopup.open());
 profileAvatar.addEventListener('click', () => avatarPopup.open());
 
-
+deleteConfirmationButton.addEventListener("click", handleConfirmDelete(data));
+avatarChangeButton.addEventListener("click", handleAvatarChange())
 

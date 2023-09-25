@@ -22,6 +22,7 @@
 * OOP
 * Promises
 * Error Handling
+* APIs
 
 
 **Intro**

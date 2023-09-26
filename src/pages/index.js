@@ -87,7 +87,10 @@ const imagePreviewPopup = new PopupWithImage("#preview");
 imagePreviewPopup.setEventListeners();
 
 const confirmationPopup = new PopupWithConfirmation({popupSelector: options.deletePopup});
-const avatarPopup = new PopupWithConfirmation({popupSelector: options.avatarPopup});
+confirmationPopup.setEventListeners();
+
+const avatarPopup = new PopupWithForm("#avatar-modal", () => {});
+avatarPopup.setEventListeners();
 
 function handleImageClick(data) {
   imagePreviewPopup.open(data);
@@ -180,7 +183,7 @@ function handleAddCardSubmit(data){
 }
 
 function handleConfirmDelete(data) {
-  api.deleteCard(data);
+  api.deleteCard(data).then((res) => {console.log(res)})
   confirmationPopup.close();
 };
 
@@ -197,8 +200,9 @@ addCardButton.addEventListener('click', () => {
   addCardValidator.resetValidation();
 });
 previewModal.addEventListener('click', () => imagePreviewPopup.open());
+console.log(avatarPopup)
 profileAvatar.addEventListener('click', () => avatarPopup.open());
 
-deleteConfirmationButton.addEventListener("click", handleConfirmDelete(data));
+deleteConfirmationButton.addEventListener("click", handleConfirmDelete());
 avatarChangeButton.addEventListener("click", handleAvatarChange())
 

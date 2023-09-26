@@ -57,6 +57,7 @@ export default class Api {
   }
 
   updateAvatar(data) {
+    console.log(data)
     return fetch(this._url + "users/me/avatar", {
       method: "PATCH",
       headers: this._headers,

@@ -18,13 +18,13 @@ export default class PopupWithConfirmation extends Popup {
   }
 
   handleConfirm = () => {
-    //this._handleConfirm(this);
+    this._handleConfirm(this);
     console.log(test)
   }
   
   test = () => {
     console.log(test)
-    //this._handleConfirm(this);
+    this._handleConfirm(this);
   }
 
   open(handleConfirm) {

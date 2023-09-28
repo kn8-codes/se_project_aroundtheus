@@ -8,8 +8,9 @@ class PopupWithImage extends Popup {
   }
 
   open(data) {
+    console.log(this._previewImageElement)
     this._previewImageElement.src = data.link;
-    this._previewImageElement.alt = data.name;
+    this._previewImageElement.alt = `Image of ${data.name}`;
     this._previewImageCaption.textContent = data.name;
     super.open();
   }

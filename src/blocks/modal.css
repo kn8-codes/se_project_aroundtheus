@@ -55,6 +55,15 @@
     margin: 36px;
     padding: 14px 124px;
     width: 358px;
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .modal__submit-button {
+    background-color: #000000;
+    color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 10px;
   }
 
   .modal__submit-button_delete:hover {

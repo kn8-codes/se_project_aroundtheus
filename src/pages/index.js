@@ -18,8 +18,9 @@ const profileDescription = document.querySelector("#profile-description");
 const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileTitleInput = document.querySelector("#edit-modal-input-title");
 const profileDescriptionInput = document.querySelector("#edit-modal-input-description");
-const profileAvatar = document.querySelector("#profile-avatar");
 const addCardButton = document.querySelector("#profile-add-button")
+const profileAvatar = document.querySelector("#profile-avatar");
+const profileAvatarEdit = document.querySelector("#avatar-btn");
 const addForm = document.querySelector("#add-form");
 const previewModal = document.querySelector("#preview");
 export const imagePreview = document.querySelector(".modal__preview");
@@ -108,7 +109,7 @@ function createCard(data) {
           api
             .removeLike(cardElement._cardId)
             .then((res) => {
-              cardElement.setLikes(res.likes);
+              cardElement.setLikes(res.isLiked);
             })
             .catch((err) => {
               console.log(`An error occured: ${err}`);
@@ -145,7 +146,6 @@ function handleProfileEditSubmit(data) {
 
 function handleAvatarChange(data) {
   api.updateAvatar(data)
-  console.log(data)
   .then((data) => {
   
   })
@@ -158,7 +158,6 @@ function handleAvatarChange(data) {
 function handleAddCardSubmit(data){
   api.uploadCard(data)
     .then((res) => {
-      console.log(res);
       const card = createCard(res);
       cardSection.addItem(card);
       addCardPopup.close();
@@ -181,6 +180,6 @@ addCardButton.addEventListener('click', () => {
   addCardValidator.resetValidation();
 });
 //previewModal.addEventListener('click', () => imagePreviewPopup.open());
-profileAvatar.addEventListener('click', () => avatarPopup.open());
+profileAvatarEdit.addEventListener('click', () => avatarPopup.open());
 
 

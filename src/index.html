@@ -16,12 +16,18 @@
   <div class="page__content">
     <header class="header page__section">
       <img class="header__image" src="<%=require('./images/header__image.svg')%>" alt="Around the US vector image" />
-      <button class="profile__avatar-edit" title="Edit avatar" type="button" id="profile__avatar-edit"></button>
     </header>
     <main class="content">
       <section class="profile page__section">
-        <img class="profile__avatar" src="<%=require('./images/jacques-cousteau.jpg')%>" alt="avatar"
+
+        <div class="profile__avatar-container">
+          <img class="profile__avatar" src="<%=require('./images/jacques-cousteau.jpg')%>" alt="avatar"
           id="profile-avatar" />
+          <button class="profile__avatar-edit" id="avatar-btn" title="Edit avatar" type="button"
+            id="profile__avatar-edit"></button>
+        </div>
+
+
         <div class="profile__info">
           <h1 class="profile__title" id="profile-title"></h1>
           <button type="button" class="profile__edit-button" id="profile-edit-button" aria-label="edit button"></button>

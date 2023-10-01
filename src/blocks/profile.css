@@ -20,28 +20,31 @@
     height: 120px;
     object-fit: cover;
     border-radius: 50%;
-    margin-right: 45px;
+   position: relative;
   }
   
   .profile__avatar-edit {
     position: absolute;
-    height: 120px;
-    width: 120px;
+    top: 0;
+    left: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    width: 100%;
+    background-size: 26px;
     background-image: url("../images/edit-b.svg");
-    background-size: 20%;
     background-repeat: no-repeat;
     background-position: center;
     background-color: rgba(0, 0, 0, 0.8);
-    border: none;
     border-radius: 50%;
     opacity: 0;
-    transition: ease-in-out 0.3s;
+    outline: none;
+    transition: all 0.3s;
   }
   
-  .profile__avatar:hover {
-    opacity: .5;
+  .profile__avatar-edit:hover {
+    opacity: 1;
     cursor: pointer;
-    transition: all 0.3s ease-in-out;
   }
   
 
@@ -113,6 +116,14 @@
   .profile__add-button:hover {
     transition: all 0.3s ease-in-out;
     opacity: 0.6;
+  }
+
+  .profile__avatar-container {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin-right: 30px;
+
   }
   
   @media screen and (min-width:320px) and (max-width:880px){

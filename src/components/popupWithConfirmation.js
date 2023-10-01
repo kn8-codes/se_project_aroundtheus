@@ -33,6 +33,8 @@ export default class PopupWithConfirmation extends Popup {
     super.setEventListeners();
     this._submitButton.addEventListener("click", this.handleConfirm);
     this._confirmButton.addEventListener("click", this.test);
+    super.setEventListeners();
+
   }
 
   removeEventsListeners() {

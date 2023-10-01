@@ -229,7 +229,7 @@
       margin: 0 0 29px;
       width: 100%;
     }
-
+    
     .modal__input_type_error{
       margin: 0;
     }
@@ -239,6 +239,10 @@
       width: 100%;
     } 
     
+    .modal__submit-button {
+      width: 70%;
+    }
+
     .modal__button_disabled:hover {
       opacity: 0.2;
       cursor: default;

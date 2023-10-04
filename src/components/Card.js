@@ -4,7 +4,7 @@ export default class Card {
         this._name = data.name;
         this._link = data.link;
         this._cardId = data._id;
-        this._liked = data.isLiked;
+        this._isLiked = data.isLiked;
         this._userId = userId;
         this._ownerId = data.owner._id;
 
@@ -54,13 +54,14 @@ export default class Card {
     }
 
     setLikes(isLiked) {
+        console.log(isLiked)
         this._isLiked = isLiked;
         //this._cardElement.querySelector(".card__like-button").classList.add("card__like-active");
         this._renderlikes();
     }
     
     _renderlikes() {
-        if (this.isLiked()) {
+        if (this._isLiked) {
             this._cardElement.querySelector(".card__like-button").classList.add("card__like-active");
         } else {
             this._cardElement.querySelector(".card__like-button").classList.remove("card__like-active");
@@ -68,7 +69,7 @@ export default class Card {
       }
 
     isLiked() {
-        return this._liked;
+        return this._isLiked;
     }
 
     getView() {
@@ -92,7 +93,7 @@ export default class Card {
         if (this._ownerId === this._userId) {
             this._addDeleteIcon();
         }
-
+        this._renderlikes();
         this._setEventListeners();
         return this._cardElement;
     }

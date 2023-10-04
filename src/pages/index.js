@@ -118,7 +118,7 @@ function createCard(data) {
           api
             .addLike(cardElement._cardId)
             .then((res) => {
-              cardElement.setLikes(res.likes);
+              cardElement.setLikes(res.isLiked);
             })
             .catch((err) => {
               console.log(`An error occured: ${err}`);
@@ -147,7 +147,7 @@ function handleProfileEditSubmit(data) {
 function handleAvatarChange(data) {
   api.updateAvatar(data)
   .then((data) => {
-  
+  userInfo.setUserInfo(data)
   })
   .catch((err) => {
     console.log(`An error occured: ${err}`);

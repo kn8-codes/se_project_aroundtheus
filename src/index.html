@@ -48,9 +48,9 @@
     <!-- confirmation modal -->
     <div class="modal" id="delete-modal">
       <div class="modal__container">
-        <button class="modal__close-button" title="Close popup"></button>
+        <button class="modal__close" title="Close popup"></button>
         <h2 class="modal__title">Are you sure?</h2>
-        <button type="submit" class="modal__submit-button_delete modal__submit-button" id="delete-confirm">
+        <button type="submit" class="modal__submit-button_delete modal__submit-button modal__button" id="delete-confirm">
           Yes
         </button>
       </div>
@@ -119,13 +119,13 @@
   <!-- avatar modal -->
   <div class="modal" id="avatar-modal">
     <div class="modal__container">
-      <button class="modal__close-button"></button>
+      <button class="modal__close"></button>
       <h2 class="modal__title">Change profile picture</h2>
       <form class="modal__form_avatar modal__form" novalidate>
         <input type="url" name="link" placeholder="Image link" class="modal__avatar-link modal__input" id="avatar-link"
           required />
         <span class="modal__error" id="avatar-link-error"></span>
-        <button type="submit" class="modal__submit-button" id="avatar-save">Save</button>
+        <button type="submit" class="modal__button" id="avatar-save">Save</button>
       </form>
     </div>
   </div>

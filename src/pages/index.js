@@ -19,10 +19,10 @@ const profileEditForm = profileEditModal.querySelector(".modal__form");
 const profileTitleInput = document.querySelector("#edit-modal-input-title");
 const profileDescriptionInput = document.querySelector("#edit-modal-input-description");
 const addCardButton = document.querySelector("#profile-add-button")
+const addForm = document.querySelector("#add-form");
 const profileAvatar = document.querySelector("#profile-avatar");
 const profileAvatarEdit = document.querySelector("#avatar-btn");
-const addForm = document.querySelector("#add-form");
-const previewModal = document.querySelector("#preview");
+const avatarForm = document.querySelector("#avatar-link");
 export const imagePreview = document.querySelector(".modal__preview");
 export const popupImage = imagePreview.querySelector(".modal__preview-image");
 export const popupImageTitle = imagePreview.querySelector(".modal__caption");
@@ -38,6 +38,9 @@ editFormValidator.enableValidation();
 
 const addCardValidator = new FormValidator(options, addForm)
 addCardValidator.enableValidation();
+
+const avatarValidator = new FormValidator(options, avatarForm)
+avatarValidator.enableValidation();
 
 const imagePreviewPopup = new PopupWithImage("#preview-modal");
 imagePreviewPopup.setEventListeners();

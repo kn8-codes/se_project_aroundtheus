@@ -55,6 +55,7 @@ class FormValidator{
           this._submitButton.classList.add(this._inactiveButtonSelector)
           this._submitButton.disabled = true;
       } else {
+        this._submitButton = this._form.querySelector(this._submitButtonSelector);
           this._submitButton.classList.remove(this._inactiveButtonSelector)
           this._submitButton.disabled = false;
       }

@@ -155,7 +155,7 @@ function handleAvatarChange(data) {
   .catch((err) => {
     console.log(`An error occured: ${err}`);
   });
-  editProfilePopup.close();
+  avatarPopup.close();
 }  
 
 function handleAddCardSubmit(data){
@@ -182,7 +182,7 @@ addCardButton.addEventListener('click', () => {
   addCardPopup.open();
   addCardValidator.resetValidation();
 });
-//previewModal.addEventListener('click', () => imagePreviewPopup.open());
+
 profileAvatarEdit.addEventListener('click', () => avatarPopup.open());
 
 

@@ -165,9 +165,11 @@ function handleAddCardSubmit(data) {
   api.uploadCard(data)
     .then((res) => {
       const card = createCard(res);
+      addCardPopup.renderLoading(true);
       cardSection.addItem(card);
     })
     .then(addCardPopup.close())
+    .finally(addCardButton.renderLoading(false))
     .catch((err) => {
       console.log(console.error);
     });;

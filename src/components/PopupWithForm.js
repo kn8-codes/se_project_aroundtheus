@@ -6,6 +6,7 @@ export default class PopupWithForm extends Popup {
     this.handleFormSubmit = handleFormSubmit;
     this._popupForm = this._popupElement.querySelector(".modal__form");
     this._inputList = this._popupForm.querySelectorAll(".modal__input");
+    this._submitButton = this._popupElement.querySelector("#avatar-save")
   }
   _getInputValues() {
     this._formValues = {};
@@ -15,6 +16,13 @@ export default class PopupWithForm extends Popup {
     return this._formValues;
   };
 
+  renderLoading(isLoading, loadingText = "Saving..") {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+    } else {
+      this._submitButton.textContent = this._submitButtonText;
+    }
+  }
   _setInputValues(data) {
     this._inputList.forEach((input) => {
       input.value = data[input.name]

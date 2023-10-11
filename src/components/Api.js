@@ -19,13 +19,7 @@ export default class Api {
         authorization: "0d8f734d-caf1-45e3-b9d3-764b4099955a"
       }
     })
-      .then(res => {
-        if (res.ok) {
-          return res.json();
-        }
-        // if the server returns an error, reject the promise
-        return Promise.reject(`Error: ${res.status}`);
-      });
+      .then(this._getResponse);
   }
   updateProfile(name, profession) {
     return fetch(this._url + "users/me", {

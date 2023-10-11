@@ -4,7 +4,7 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import UserInfo from "../components/UserInfo.js";
 import Section from "../components/Section.js";
 import PopupWithImage from "../components/PopupWithImage.js";
-import { initialCards, cardData, options , cardSelector } from "../utils/constants.js";
+import { initialCards, cardData, options, cardSelector } from "../utils/constants.js";
 import '../pages/index.css';
 import Popup from "../components/Popup";
 import { data } from "autoprefixer";
@@ -27,7 +27,7 @@ export const imagePreview = document.querySelector(".modal__preview");
 export const popupImage = imagePreview.querySelector(".modal__preview-image");
 export const popupImageTitle = imagePreview.querySelector(".modal__caption");
 
-const addCardPopup = new PopupWithForm('#profile-add-modal', handleAddCardSubmit );
+const addCardPopup = new PopupWithForm('#profile-add-modal', handleAddCardSubmit);
 addCardPopup.setEventListeners();
 
 const editProfilePopup = new PopupWithForm('#profile-edit-modal', handleProfileEditSubmit);
@@ -45,7 +45,7 @@ avatarValidator.enableValidation();
 const imagePreviewPopup = new PopupWithImage("#preview-modal");
 imagePreviewPopup.setEventListeners();
 
-const confirmationPopup = new PopupWithConfirmation({popupSelector: options.deletePopup});
+const confirmationPopup = new PopupWithConfirmation({ popupSelector: options.deletePopup });
 confirmationPopup.setEventListeners();
 
 const avatarPopup = new PopupWithForm("#avatar-modal", handleAvatarChange);
@@ -57,7 +57,7 @@ const api = new Api({
     authorization: "0d8f734d-caf1-45e3-b9d3-764b4099955a",
     "Content-Type": "application/json"
   }
-}); 
+});
 
 let cardSection;
 
@@ -83,10 +83,10 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
   });
 
 const userInfo = new UserInfo(
-  profileTitle, 
+  profileTitle,
   profileDescription,
   profileAvatar
-  );
+);
 
 function createCard(data) {
   const cardElement = new Card(
@@ -103,28 +103,28 @@ function createCard(data) {
               cardElement.removeCard();
               confirmationPopup.close();
             })
-            .catch((err) => console.log(`An error occured: ${err}`))
+            .catch(() => console.log(console.error))
             .finally(() => confirmationPopup.renderLoading(false));
         });
       },
       handleLikeClick: () => {
         if (cardElement.isLiked()) {
           api
-            .removeLike(cardElement._cardId)
+            .removeLike(cardElement.cardId)
             .then((res) => {
               cardElement.setLikes(res.isLiked);
             })
             .catch((err) => {
-              console.log(`An error occured: ${err}`);
+              console.log(console.error);
             });
         } else {
           api
-            .addLike(cardElement._cardId)
+            .addLike(cardElement.cardId)
             .then((res) => {
               cardElement.setLikes(res.isLiked);
             })
             .catch((err) => {
-              console.log(`An error occured: ${err}`);
+              console.log(console.error);
             });
         }
       },
@@ -138,36 +138,39 @@ function createCard(data) {
 
 function handleProfileEditSubmit(data) {
   api.updateProfile(data.name, data.profession)
-  .then((data) => {
-    userInfo.setUserInfo(data)
-  })
-  .catch((err) => {
-    console.log(`An error occured: ${err}`);
-  });
+    .then((data) => {
+      userInfo.setUserInfo(data)
+    })
+    .catch((err) => {
+      console.log(console.error);
+    });
   editProfilePopup.close();
-}  
+}
 
 function handleAvatarChange(data) {
   api.updateAvatar(data)
-  .then((data) => {
-  userInfo.setUserInfo(data)
-  })
-  .catch((err) => {
-    console.log(`An error occured: ${err}`);
-  });
-  avatarPopup.close();
-}  
+    .then((data) => {
+      avatarPopup.renderLoading(false)
+      userInfo.setUserInfo(data)
+    })
+    .then(avatarPopup.close())
+    .finally(avatarPopup.renderLoading(true))
+    .catch((err) => {
+      console.log(console.error);
+    });
 
-function handleAddCardSubmit(data){
+}
+
+function handleAddCardSubmit(data) {
   api.uploadCard(data)
     .then((res) => {
       const card = createCard(res);
       cardSection.addItem(card);
-      addCardPopup.close();
     })
-  .catch((err) => {
-    console.log(`An error occured: ${err}`);
-  });;
+    .then(addCardPopup.close())
+    .catch((err) => {
+      console.log(console.error);
+    });;
 }
 
 function openProfileForm(e) {
@@ -178,11 +181,15 @@ function openProfileForm(e) {
 };
 
 profileEditButton.addEventListener('click', (e) => openProfileForm(e));
+
 addCardButton.addEventListener('click', () => {
   addCardPopup.open();
   addCardValidator.resetValidation();
 });
 
-profileAvatarEdit.addEventListener('click', () => avatarPopup.open());
+profileAvatarEdit.addEventListener('click', () => {
+  avatarPopup.open();
+  avatarValidator.resetValidation();
+});
 
 

@@ -8,7 +8,7 @@ export default class PopupWithConfirmation extends Popup {
     this._submitButtonText = this._submitButton.textContent;
   }
 
-  renderLoading(isLoading, loadingText = "Saving...") {
+  renderLoading(isLoading, loadingText = "Deleting...") {
     if (isLoading) {
       this._submitButton.textContent = loadingText;
     } else {
@@ -17,10 +17,6 @@ export default class PopupWithConfirmation extends Popup {
   }
 
   handleConfirm = () => {
-    this._handleConfirm(this);
-  }
-  
-  test = () => {
     this._handleConfirm(this);
   }
 
@@ -32,13 +28,9 @@ export default class PopupWithConfirmation extends Popup {
   setEventListeners() {
     super.setEventListeners();
     this._submitButton.addEventListener("click", this.handleConfirm);
-    this._confirmButton.addEventListener("click", this.test);
-    super.setEventListeners();
-
   }
 
-  removeEventsListeners() {
-    super.removeEventsListeners();
+  removeEventListeners() {
     this._submitButton.removeEventListener("click", this.handleConfirm);
   }
 }

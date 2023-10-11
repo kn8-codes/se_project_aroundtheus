@@ -15,9 +15,7 @@ export default class Api {
 
   getInitialCards() {
     return fetch(this._url + "cards", {
-      headers: {
-        authorization: "0d8f734d-caf1-45e3-b9d3-764b4099955a"
-      }
+      headers: this._headers,
     })
       .then(this._getResponse);
   }

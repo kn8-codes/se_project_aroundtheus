@@ -168,10 +168,11 @@ function handleAddCardSubmit(data) {
       addCardPopup.renderLoading(true);
       cardSection.addItem(card);
     })
-    .then(addCardPopup.close())
-    .finally(addCardButton.renderLoading(false))
+    .then(addCardPopup.close)
+    .finally(() => {
+      addCardPopup.renderLoading(false)})
     .catch((err) => {
-      console.log(console.error);
+      console.error(err);
     });;
 }
 

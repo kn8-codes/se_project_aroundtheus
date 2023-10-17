@@ -140,7 +140,9 @@ function handleProfileEditSubmit(data) {
   api.updateProfile(data.name, data.profession)
     .then((data) => {
       userInfo.setUserInfo(data)
+      editProfilePopup.renderLoading(true)
     })
+    .finally(editProfilePopup.renderLoading(false))
     .catch((err) => {
       console.log(console.error);
     });
@@ -150,11 +152,11 @@ function handleProfileEditSubmit(data) {
 function handleAvatarChange(data) {
   api.updateAvatar(data)
     .then((data) => {
-      avatarPopup.renderLoading(false)
+      avatarPopup.renderLoading(true)
       userInfo.setUserInfo(data)
     })
     .then(avatarPopup.close)
-    .finally(avatarPopup.renderLoading(true))
+    .finally(avatarPopup.renderLoading(false))
     .catch((err) => {
       console.log(console.error);
     });

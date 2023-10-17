@@ -12,7 +12,7 @@ renderLoading(isLoading, loadingText = "Deleting...") {
     if (isLoading) {
         this._submitButton.textContent = loadingText;
     } else {
-      this._submitButtonText = "Save";
+      this._submitButtonText = "Delete";
       this._submitButton.textContent = this._submitButtonText;
     }
   }

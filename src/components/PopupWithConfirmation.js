@@ -31,7 +31,7 @@ renderLoading(isLoading, loadingText = "Deleting...") {
     this._submitButton.addEventListener("click", this.handleConfirm);
   }
 
-  removeEventListeners() {
-    this._submitButton.removeEventListener("click", this.handleConfirm);
-  }
+//   removeEventListeners() {
+//     this._submitButton.removeEventListener("click", this.handleConfirm);
+//   }
 }

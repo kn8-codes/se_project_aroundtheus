@@ -153,7 +153,7 @@ function handleAvatarChange(data) {
       avatarPopup.renderLoading(false)
       userInfo.setUserInfo(data)
     })
-    .then(avatarPopup.close())
+    .then(avatarPopup.close)
     .finally(avatarPopup.renderLoading(true))
     .catch((err) => {
       console.log(console.error);

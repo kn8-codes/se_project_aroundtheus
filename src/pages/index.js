@@ -146,7 +146,7 @@ function handleProfileEditSubmit(data) {
     .catch((err) => {
       console.log(console.error);
     });
-  editProfilePopup.close();
+  editProfilePopup.close;
 }
 
 function handleAvatarChange(data) {
@@ -156,7 +156,7 @@ function handleAvatarChange(data) {
       userInfo.setUserInfo(data)
     })
     .then(avatarPopup.close)
-    .finally(avatarPopup.renderLoading(false))
+    .finally(() => avatarPopup.renderLoading(false))
     .catch((err) => {
       console.log(console.error);
     });

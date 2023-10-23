@@ -79,7 +79,7 @@ Promise.all([api.getUserInfo(), api.getInitialCards()])
     cardSection.renderItems();
   })
   .catch((err) => {
-    console.log(err);
+    console.error(err);
   });
 
 const userInfo = new UserInfo(
@@ -103,7 +103,7 @@ function createCard(data) {
               cardElement.removeCard();
               confirmationPopup.close();
             })
-            .catch(() => console.log(console.error))
+            .catch(() => console.error(err))
             .finally(() => confirmationPopup.renderLoading(false));
         });
       },
@@ -115,7 +115,7 @@ function createCard(data) {
               cardElement.setLikes(res.isLiked);
             })
             .catch((err) => {
-              console.log(console.error);
+              console.error(err);
             });
         } else {
           api
@@ -124,7 +124,7 @@ function createCard(data) {
               cardElement.setLikes(res.isLiked);
             })
             .catch((err) => {
-              console.log(console.error);
+              console.error(err);
             });
         }
       },
@@ -141,25 +141,25 @@ editProfilePopup.renderLoading(true);
 
   api.updateProfile(data.name, data.profession)
     .then((data) => {
-      userInfo.setUserInfo(data)
+      userInfo.setUserInfo(data);
       editProfilePopup.close();
     })
     .catch((err) => {
-      console.log(console.error);
+      console.error(err);
     })
     .finally(() => editProfilePopup.renderLoading(false));
 }
 
 function handleAvatarChange(data) {
+  avatarPopup.renderLoading(true)
   api.updateAvatar(data)
     .then((data) => {
-      avatarPopup.renderLoading(true)
       userInfo.setUserInfo(data)
     })
     .then(avatarPopup.close)
     .finally(() => avatarPopup.renderLoading(false))
     .catch((err) => {
-      console.log(console.error);
+      console.error(err);
     });
 
 }
@@ -171,7 +171,7 @@ function handleAddCardSubmit(data) {
       const card = createCard(res.data);
       cardSection.addItem(card);
     })
-    .then(addCardPopup.close())
+    .then(addCardPopup.close)
     .finally(() => addCardPopup.renderLoading(false))
     .catch((err) => {
       console.error(err);

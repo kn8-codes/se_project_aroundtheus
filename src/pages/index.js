@@ -142,8 +142,8 @@ editProfilePopup.renderLoading(true);
   api.updateProfile(data.name, data.profession)
     .then((data) => {
       userInfo.setUserInfo(data);
-      editProfilePopup.close();
     })
+    .then(editProfilePopup.close)
     .catch((err) => {
       console.error(err);
     })

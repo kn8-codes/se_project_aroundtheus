@@ -18,7 +18,6 @@ export default class PopupWithForm extends Popup {
   };
 
   renderLoading(isLoading) {
-    console.log(isLoading)
     if (isLoading) {
       this._submitButton.textContent = "Saving";
     } else {
@@ -32,7 +31,6 @@ export default class PopupWithForm extends Popup {
   }
 
   close() {
-    console.trace(this)
     this._popupForm.reset();
     super.close();
 

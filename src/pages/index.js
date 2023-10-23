@@ -137,16 +137,17 @@ function createCard(data) {
 
 
 function handleProfileEditSubmit(data) {
+editProfilePopup.renderLoading(true);
+
   api.updateProfile(data.name, data.profession)
     .then((data) => {
       userInfo.setUserInfo(data)
-      editProfilePopup.renderLoading(true)
+      editProfilePopup.close();
     })
-    .finally(editProfilePopup.renderLoading(false))
     .catch((err) => {
       console.log(console.error);
-    });
-  editProfilePopup.close;
+    })
+    .finally(() => editProfilePopup.renderLoading(false));
 }
 
 function handleAvatarChange(data) {
@@ -164,15 +165,14 @@ function handleAvatarChange(data) {
 }
 
 function handleAddCardSubmit(data) {
+  addCardPopup.renderLoading(true);
   api.uploadCard(data)
     .then((res) => {
-      const card = createCard(res);
-      addCardPopup.renderLoading(true);
+      const card = createCard(res.data);
       cardSection.addItem(card);
     })
-    .then(addCardPopup.close)
-    .finally(() => {
-      addCardPopup.renderLoading(false)})
+    .then(addCardPopup.close())
+    .finally(() => addCardPopup.renderLoading(false))
     .catch((err) => {
       console.error(err);
     });;

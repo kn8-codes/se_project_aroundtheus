@@ -142,8 +142,8 @@ editProfilePopup.renderLoading(true);
   api.updateProfile(data.name, data.profession)
     .then((data) => {
       userInfo.setUserInfo(data);
+      editProfilePopup.close();
     })
-    .then(editProfilePopup.close)
     .catch((err) => {
       console.error(err);
     })
@@ -154,9 +154,9 @@ function handleAvatarChange(data) {
   avatarPopup.renderLoading(true)
   api.updateAvatar(data)
     .then((data) => {
-      userInfo.setUserInfo(data)
+      userInfo.setUserInfo(data);
+      avatarPopup.close();
     })
-    .then(avatarPopup.close)
     .finally(() => avatarPopup.renderLoading(false))
     .catch((err) => {
       console.error(err);
@@ -170,8 +170,8 @@ function handleAddCardSubmit(data) {
     .then((res) => {
       const card = createCard(res.data);
       cardSection.addItem(card);
+      addCardPopup.close();
     })
-    .then(addCardPopup.close)
     .finally(() => addCardPopup.renderLoading(false))
     .catch((err) => {
       console.error(err);

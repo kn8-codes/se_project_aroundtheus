@@ -1,4 +1,4 @@
-# Project 8: Around The U.S.
+# Project 9: Around The U.S.
 
 ### Overview  
 
@@ -20,6 +20,9 @@
 * Classes
 * Modules
 * OOP
+* Promises
+* Error Handling
+* APIs
 
 
 **Intro**

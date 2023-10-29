@@ -15,6 +15,39 @@
     border-radius: 50%;
   }
   
+  .profile__avatar {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+   position: relative;
+  }
+  
+  .profile__avatar-edit {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    border: 0;
+    height: 100%;
+    width: 100%;
+    background-size: 26px;
+    background-image: url("../images/edit-b.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 50%;
+    opacity: 0;
+    outline: none;
+    transition: all 0.3s;
+  }
+  
+  .profile__avatar-edit:hover {
+    opacity: 1;
+    cursor: pointer;
+  }
+  
+
   .profile__info {
     margin-left: 19px;
     display: grid;
@@ -83,6 +116,14 @@
   .profile__add-button:hover {
     transition: all 0.3s ease-in-out;
     opacity: 0.6;
+  }
+
+  .profile__avatar-container {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin-right: 30px;
+
   }
   
   @media screen and (min-width:320px) and (max-width:880px){

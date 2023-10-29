@@ -33,7 +33,43 @@
     pointer-events: all;
     transition: visibility 0s, opacity 0.5s linear;
   }
-  
+
+  .modal__close-button {
+    position: absolute;
+    top: -45px;
+    right: -45px;
+    background: transparent url(../images/close-icon.svg) no-repeat center;
+    border: none;
+    width: 45px;
+    height: 45px;
+    padding: 0;
+    transition: ease-in-out 0.4s;
+  }
+
+  .modal__close-button:hover { 
+    opacity: 0.6;
+    cursor: pointer; 
+  } 
+
+  .modal__submit-button_delete {
+    margin: 36px;
+    padding: 14px 124px;
+    width: 358px;
+    background-color: #000000;
+    color: #ffffff;
+  }
+
+  .modal__submit-button {
+    background-color: #000000;
+    color: #ffffff;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+
+  .modal__submit-button_delete:hover {
+    cursor: pointer;
+  }
+
   .modal__close {
     position: absolute;
     margin: 0;
@@ -59,7 +95,6 @@
   .modal__container {
     background-color: white;
     width: 430px;
-    /* height: 330px; */
     align-content: center;
     justify-content: center;
     border-radius: 10px;
@@ -194,7 +229,7 @@
       margin: 0 0 29px;
       width: 100%;
     }
-
+    
     .modal__input_type_error{
       margin: 0;
     }
@@ -202,11 +237,14 @@
     .modal__button {
       height: 46px;
       width: 100%;
-      /* margin: 45px 22px 25px; */
-      /* padding-left: 10px; */
-      /* padding-right: 10px; */
+      margin: unset;
+      padding: unset;
     } 
     
+    .modal__submit-button {
+      width: 70%;
+    }
+
     .modal__button_disabled:hover {
       opacity: 0.2;
       cursor: default;

@@ -48,7 +48,7 @@
 
   .card__like-button:hover {
     opacity: 50%;
-    transition: all 0.9s ease-in;
+    transition: all 0.3s ease-in-out;
   }
 
   .card__delete-button {
@@ -67,4 +67,5 @@
   
   .card__delete-button:hover {
     opacity: 0.5;
+    transition: all 0.3s ease-in-out;
   }

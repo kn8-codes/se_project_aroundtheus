@@ -89,6 +89,7 @@ const userInfo = new UserInfo(
 );
 
 function createCard(data) {
+  console.log(data)
   const cardElement = new Card(
     {
       data,
@@ -168,7 +169,8 @@ function handleAddCardSubmit(data) {
   addCardPopup.renderLoading(true);
   api.uploadCard(data)
     .then((res) => {
-      const card = createCard(res.data);
+      console.log(res)
+      const card = createCard(res);
       cardSection.addItem(card);
       addCardPopup.close();
     })
